@@ -72,6 +72,10 @@ button{font:inherit;color:inherit;cursor:pointer}
 @media (hover:hover){.nav-links a:hover{color:var(--text)}}
 .nav .btn{min-height:44px;padding:5px 5px 5px 20px;font-size:14px}
 .nav .btn .ico{width:34px;height:34px}
+.nav-end{display:flex;align-items:center;gap:10px}
+.ig{flex:none;width:46px;height:46px;border-radius:50%;border:1px solid var(--line-2);display:grid;place-items:center;color:var(--silver);transition:border-color .4s var(--ease),color .4s var(--ease),background-color .4s var(--ease)}
+.ig svg{width:20px;height:20px}
+@media (hover:hover){.ig:hover{border-color:var(--silver);color:#fff;background:rgba(221,226,234,.07)}}
 .burger{display:none;position:relative;width:46px;height:46px;border-radius:50%;border:1px solid var(--line-2);background:transparent}
 .burger span{position:absolute;left:14px;right:14px;height:1.5px;border-radius:2px;background:var(--text);transition:transform .5s var(--ease)}
 .burger span:nth-child(1){top:18px}
@@ -140,15 +144,6 @@ section.sec{padding:130px 0;position:relative}
 .invest{background:linear-gradient(180deg,var(--black),var(--navy))}
 .invest .clear{margin-top:0}
 
-/* quem faz */
-.who-grid{display:grid;grid-template-columns:320px 1fr;gap:64px;align-items:center}
-.who-photo .bezel-in{aspect-ratio:4/5;background:radial-gradient(120% 90% at 30% 0%,var(--navy-3),var(--navy) 55%,#060a17);display:grid;place-items:center}
-.who-photo img{width:100%;height:100%;object-fit:cover}
-.who-initials{font-size:64px;font-weight:800;letter-spacing:-.04em;line-height:1;opacity:.5}
-.who h2{margin-top:22px}
-.who-quote{margin-top:22px;font-size:clamp(20px,2.2vw,26px);line-height:1.45;color:#d3d9e4;max-width:26em;letter-spacing:-.01em}
-.who-role{margin-top:18px;color:var(--mute);font-size:15px}
-
 /* logo oficial (quando houver arquivo): recortada em círculo */
 .brand img{flex:none;width:44px;height:44px;border-radius:50%;object-fit:cover;border:1px solid var(--line-2)}
 
@@ -203,6 +198,10 @@ section.sec{padding:130px 0;position:relative}
 .phone{margin-top:22px;color:var(--mute);font-size:15px}
 .phone a{color:var(--silver);text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--line-2)}
 
+/* instagram */
+.insta{padding:96px 0;text-align:center;background:var(--navy)}
+.insta .h2{margin:0 auto 30px;font-size:clamp(28px,3.6vw,44px)}
+
 footer{padding:30px 0;border-top:1px solid var(--line);color:var(--mute);font-size:13.5px;background:var(--black)}
 .foot{display:flex;align-items:center;justify-content:space-between;gap:14px 24px;flex-wrap:wrap}
 .foot .brand{font-size:14px;color:var(--text)}
@@ -215,7 +214,7 @@ footer{padding:30px 0;border-top:1px solid var(--line);color:var(--mute);font-si
 
 /* responsivo */
 @media (max-width:980px){
-  .nav-links,.nav > .btn{display:none}
+  .nav-links,.nav-end > .btn{display:none}
   .burger{display:block}
   .menu{display:block;position:absolute;top:calc(100% + 10px);left:24px;right:24px;padding:8px 26px 24px;border:1px solid var(--line);border-radius:28px;background:rgba(8,13,30,.96);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);visibility:hidden;opacity:0;transform:translateY(-10px);transition:opacity .45s var(--ease),transform .45s var(--ease),visibility 0s .45s}
   .menu.open{visibility:visible;opacity:1;transform:none;transition:opacity .45s var(--ease),transform .45s var(--ease),visibility 0s}
@@ -232,8 +231,6 @@ footer{padding:30px 0;border-top:1px solid var(--line);color:var(--mute);font-si
   .art{max-width:420px}
   .offer-grid{grid-template-columns:1fr}
   .clear-in{grid-template-columns:1fr;padding:30px 28px}
-  .who-grid{grid-template-columns:1fr;gap:36px}
-  .who-photo{max-width:260px}
   .card,.card.wide{grid-column:span 12}
   .card.wide .card-in{display:flex}
   .card.wide .shots{min-height:0;flex:none}
@@ -284,10 +281,13 @@ footer{padding:30px 0;border-top:1px solid var(--line);color:var(--mute);font-si
         <li><a href="#como-funciona">Como funciona</a></li>
         <li><a href="#contato">Contato</a></li>
       </ul>
-      <a class="btn btn-metal" data-wa href="#contato" target="_blank" rel="noopener">Quero meu site
-        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
-      </a>
-      <button class="burger" id="burger" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu"><span></span><span></span></button>
+      <div class="nav-end">
+        <a class="ig" href="https://www.instagram.com/fulcroagencia/" target="_blank" rel="noopener" aria-label="Instagram da Fulcro, @fulcroagencia (abre em nova aba)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r=".6" fill="currentColor"/></svg></a>
+        <a class="btn btn-metal" data-wa href="#contato" target="_blank" rel="noopener">Quero meu site
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </a>
+        <button class="burger" id="burger" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu"><span></span><span></span></button>
+      </div>
     </nav>
     <div class="menu" id="menu">
       <a class="l" href="#oferta">A oferta</a>
@@ -376,20 +376,6 @@ footer{padding:30px 0;border-top:1px solid var(--line);color:var(--mute);font-si
   </div>
 </section>
 
-<section class="sec who" id="quem-faz" hidden>
-  <div class="wrap who-grid">
-    <div class="who-photo rv">
-      <div class="bezel"><div class="bezel-in" id="who-photo"></div></div>
-    </div>
-    <div>
-      <span class="eyebrow rv">Quem faz</span>
-      <h2 class="title h2 rv" style="--d:80ms" id="who-name"></h2>
-      <p class="who-quote rv" style="--d:140ms" id="who-quote"></p>
-      <p class="who-role rv" style="--d:180ms">Fulcro Agência, Santa Maria, RS</p>
-    </div>
-  </div>
-</section>
-
 <section class="sec contact" id="contato">
   <div class="wrap">
     <span class="eyebrow rv">Contato</span>
@@ -419,8 +405,8 @@ footer{padding:30px 0;border-top:1px solid var(--line);color:var(--mute);font-si
             <p><strong>A criação do site não tem custo.</strong> Estamos montando o portfólio da agência: você recebe o site e nós ganhamos um projeto real para mostrar.</p>
           </li>
           <li>
-            <small>Hospedagem, paga por você à Wix</small>
-            <p>Você paga só a hospedagem na Wix: <strong>R$ 16 por mês no primeiro ano (R$ 192), com domínio incluso.</strong> Depois do primeiro ano, vale o valor normal da plataforma.</p>
+            <small>Hospedagem e domínio, pagos por você à Wix</small>
+            <p>Você paga só a hospedagem e o domínio, direto na Wix. Os valores eu te passo na nossa conversa, antes de qualquer assinatura.</p>
           </li>
           <li>
             <small>Assinatura</small>
@@ -429,6 +415,14 @@ footer{padding:30px 0;border-top:1px solid var(--line);color:var(--mute);font-si
         </ul>
       </div>
     </div>
+  </div>
+</section>
+<section class="sec insta" id="instagram">
+  <div class="wrap">
+    <h2 class="title h2 rv">Acompanhe a Fulcro no Instagram</h2>
+    <a class="btn btn-ghost rv" style="--d:80ms" href="https://www.instagram.com/fulcroagencia/" target="_blank" rel="noopener" aria-label="@fulcroagencia no Instagram (abre em nova aba)">@fulcroagencia
+      <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r=".6" fill="currentColor"/></svg></span>
+    </a>
   </div>
 </section>
 </main>
@@ -440,6 +434,7 @@ footer{padding:30px 0;border-top:1px solid var(--line);color:var(--mute);font-si
       FULCRO
     </span>
     <span>Fulcro Agência, Santa Maria, RS</span>
+    <a class="ig" href="https://www.instagram.com/fulcroagencia/" target="_blank" rel="noopener" aria-label="Instagram da Fulcro, @fulcroagencia (abre em nova aba)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r=".6" fill="currentColor"/></svg></a>
     <span>Os projetos exibidos são conceitos, com dados fictícios.</span>
   </div>
 </footer>
@@ -461,14 +456,6 @@ footer{padding:30px 0;border-top:1px solid var(--line);color:var(--mute);font-si
   /* LOGO: nome do arquivo da logo oficial. Aparece recortada em círculo no topo e no rodapé.
      Vazio ('') ou arquivo ausente mantém o ícone da alavanca. */
   var LOGO = 'logo.png';
-
-  /* QUEM FAZ: a seção só aparece quando "nome" estiver preenchido.
-     - foto: nome do arquivo (ex.: 'foto.jpg'). Vazio mostra as iniciais do nome. */
-  var QUEM_FAZ = {
-    nome: 'Anita',
-    frase: 'Sou de Santa Maria, RS. A Fulcro cria sites profissionais para ajudar as empresas daqui a crescer na internet.',
-    foto: 'foto.jpg'
-  };
 
   /* PROJETOS: para adicionar um projeto, copie um bloco { ... } e mude os dados.
      - print:   endereço da imagem do site (no Wix, o link da imagem na mídia).
@@ -527,27 +514,6 @@ footer{padding:30px 0;border-top:1px solid var(--line);color:var(--mute);font-si
       });
     };
     logo.src = LOGO; /* se o arquivo não carregar, o ícone atual permanece */
-  }
-
-  /* quem faz */
-  if(QUEM_FAZ.nome){
-    var who = document.getElementById('quem-faz');
-    who.hidden = false;
-    document.getElementById('who-name').textContent = QUEM_FAZ.nome;
-    document.getElementById('who-quote').textContent = '“' + QUEM_FAZ.frase + '”';
-    var slot = document.getElementById('who-photo');
-    var iniciais = QUEM_FAZ.nome.trim().split(/\s+/).map(function(w){return w.charAt(0);}).filter(Boolean);
-    var ini = document.createElement('span');
-    ini.className = 'who-initials metal';
-    ini.setAttribute('aria-hidden', 'true');
-    ini.textContent = ((iniciais[0] || '') + (iniciais.length > 1 ? iniciais[iniciais.length - 1] : '')).toUpperCase();
-    slot.appendChild(ini);
-    if(QUEM_FAZ.foto){
-      var foto = new Image();
-      foto.alt = 'Foto de ' + QUEM_FAZ.nome;
-      foto.onload = function(){slot.textContent = ''; slot.appendChild(foto);};
-      foto.src = QUEM_FAZ.foto;
-    }
   }
 
   var ARROW = '<span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>';
@@ -622,7 +588,7 @@ footer{padding:30px 0;border-top:1px solid var(--line);color:var(--mute);font-si
   (function(){
     var track = document.getElementById('car-track'), dotsEl = document.getElementById('car-dots');
     var region = document.getElementById('car');
-    var INTERVALO = 3500;
+    var INTERVALO = 1500;
     var itens = [];
     PROJETOS.forEach(function(p){
       if(p.print) itens.push({src: p.print, nome: p.nome, sub: p.nicho});
@@ -673,7 +639,7 @@ footer{padding:30px 0;border-top:1px solid var(--line);color:var(--mute);font-si
       mark();
       auto = true;
       clearTimeout(autoTimer);
-      autoTimer = setTimeout(function(){auto = false;}, 1200);
+      autoTimer = setTimeout(function(){auto = false;}, 900);
       track.scrollTo({left: index * track.clientWidth, behavior: calm ? 'auto' : 'smooth'});
     }
     function play(){
@@ -681,7 +647,9 @@ footer{padding:30px 0;border-top:1px solid var(--line);color:var(--mute);font-si
       if(calm || !visible || paused || itens.length < 2) return;
       timer = setInterval(function(){go(index + 1);}, INTERVALO);
     }
-    function pause(on){paused = on; play();}
+    /* pausa com o mouse em cima, com o dedo na tela ou com foco pelo teclado; volta a girar quando nenhum dos três vale */
+    var hold = {mouse: false, touch: false, key: false};
+    function pause(what, on){hold[what] = on; paused = hold.mouse || hold.touch || hold.key; play();}
 
     track.addEventListener('scroll', update, {passive: true});
     track.addEventListener('keydown', function(e){
@@ -690,12 +658,13 @@ footer{padding:30px 0;border-top:1px solid var(--line);color:var(--mute);font-si
     });
     /* pausa enquanto o mouse ou o dedo está sobre o carrossel */
     track.addEventListener('pointerdown', function(){auto = false; clearTimeout(autoTimer);});
-    track.addEventListener('touchstart', function(){auto = false; clearTimeout(autoTimer);}, {passive: true});
-    region.addEventListener('pointerenter', function(){pause(true);});
-    region.addEventListener('pointerleave', function(){pause(false);});
-    region.addEventListener('pointercancel', function(){pause(false);});
-    region.addEventListener('focusin', function(){pause(true);});
-    region.addEventListener('focusout', function(){pause(false);});
+    region.addEventListener('touchstart', function(){auto = false; clearTimeout(autoTimer); pause('touch', true);}, {passive: true});
+    region.addEventListener('touchend', function(){pause('touch', false);}, {passive: true});
+    region.addEventListener('touchcancel', function(){pause('touch', false);}, {passive: true});
+    region.addEventListener('pointerenter', function(e){if(e.pointerType === 'mouse') pause('mouse', true);});
+    region.addEventListener('pointerleave', function(){pause('mouse', false);});
+    region.addEventListener('focusin', function(e){pause('key', e.target.matches(':focus-visible'));});
+    region.addEventListener('focusout', function(){pause('key', false);});
     window.addEventListener('resize', function(){track.scrollLeft = index * track.clientWidth;});
 
     if('IntersectionObserver' in window){
