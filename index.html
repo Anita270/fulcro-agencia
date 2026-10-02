@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Fulcro Agência | Sites profissionais em Santa Maria, RS</title>
+<meta name="description" content="Fulcro Agência, Santa Maria, RS. O ponto de apoio para o seu crescimento digital. Estamos selecionando empresas da cidade para receber um site profissional gratuito.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#06070a;
+  --black-2:#0a0c12;
+  --navy:#0a1228;
+  --navy-2:#101b3d;
+  --navy-3:#16244f;
+  --silver:#dde2ea;
+  --silver-2:#aab2c0;
+  --silver-3:#7d8697;
+  --text:#eef1f6;
+  --mute:#9aa3b5;
+  --line:rgba(221,226,234,.14);
+  --line-2:rgba(221,226,234,.28);
+  --metal:linear-gradient(180deg,#ffffff 0%,#dfe4ec 40%,#a3abba 100%);
+  --metal-flat:linear-gradient(135deg,#f6f8fb 0%,#c3cad6 55%,#99a2b2 100%);
+  --ease:cubic-bezier(.32,.72,0,1);
+  --font:"Plus Jakarta Sans","Segoe UI",system-ui,-apple-system,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--black);color:var(--text);font-family:var(--font);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,p,ul,ol{margin:0}
+ul,ol{padding:0;list-style:none}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid #fff;outline-offset:3px;border-radius:8px}
+.wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* tipografia */
+.eyebrow{display:inline-block;padding:7px 14px;border:1px solid var(--line-2);border-radius:999px;font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--silver)}
+.title{font-weight:700;letter-spacing:-.03em;line-height:1.04}
+.metal{background:var(--metal);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;padding-bottom:.08em}
+.h2{font-size:clamp(34px,4.6vw,58px);margin-top:22px}
+.lead{color:var(--mute);font-size:19px;max-width:32em}
+
+/* botoes: pilula com circulo interno */
+.btn{display:inline-flex;align-items:center;gap:14px;min-height:54px;padding:7px 7px 7px 26px;border-radius:999px;border:1px solid transparent;font-weight:600;font-size:15px;line-height:1.15;white-space:nowrap;transition:transform .5s var(--ease),filter .5s var(--ease),border-color .5s var(--ease),background-color .5s var(--ease)}
+.btn .ico{flex:none;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;transition:transform .5s var(--ease)}
+.btn .ico svg{width:16px;height:16px}
+.btn-metal{background:var(--metal-flat);color:#07090f;box-shadow:inset 0 1px 0 rgba(255,255,255,.7)}
+.btn-metal .ico{background:rgba(7,9,15,.12)}
+.btn-ghost{border-color:var(--line-2);color:var(--text);background:rgba(221,226,234,.03)}
+.btn-ghost .ico{background:rgba(221,226,234,.1)}
+.btn:active{transform:scale(.97)}
+@media (hover:hover) and (pointer:fine){
+  .btn-metal:hover{filter:brightness(1.08)}
+  .btn-ghost:hover{border-color:var(--silver);background:rgba(221,226,234,.07)}
+  .btn:hover .ico{transform:translate(3px,-2px) scale(1.05)}
+}
+
+/* cabecalho: ilha flutuante, nao fixa (funciona no iframe do Wix) */
+.top{position:absolute;top:0;left:0;right:0;z-index:20;padding:22px 0}
+.top .wrap{position:relative}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:9px 9px 9px 26px;border:1px solid var(--line);border-radius:999px;background:rgba(10,18,40,.62);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}
+.brand{display:flex;align-items:center;gap:12px;font-weight:800;font-size:17px;letter-spacing:.24em}
+.brand svg{width:26px;height:26px}
+.nav-links{display:flex;gap:32px}
+.nav-links a{font-size:14px;font-weight:500;color:var(--mute);padding:8px 0;transition:color .4s var(--ease)}
+@media (hover:hover){.nav-links a:hover{color:var(--text)}}
+.nav .btn{min-height:44px;padding:5px 5px 5px 20px;font-size:14px}
+.nav .btn .ico{width:34px;height:34px}
+.burger{display:none;position:relative;width:46px;height:46px;border-radius:50%;border:1px solid var(--line-2);background:transparent}
+.burger span{position:absolute;left:14px;right:14px;height:1.5px;border-radius:2px;background:var(--text);transition:transform .5s var(--ease)}
+.burger span:nth-child(1){top:18px}
+.burger span:nth-child(2){top:26px}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(4px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){transform:translateY(-4px) rotate(-45deg)}
+.menu{display:none}
+
+/* hero */
+.hero{position:relative;padding:170px 0 120px;overflow:hidden;background:
+  radial-gradient(760px 520px at 82% 30%,rgba(34,58,140,.5),transparent 65%),
+  radial-gradient(600px 420px at 8% 100%,rgba(22,36,79,.55),transparent 70%),
+  var(--black)}
+.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:64px;align-items:center}
+.hero h1{font-size:clamp(42px,6.2vw,80px);margin:26px 0 26px}
+.hero .lead{margin-bottom:36px}
+.hero .lead strong{color:var(--text);font-weight:600}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px}
+
+/* moldura dupla */
+.bezel{padding:9px;border-radius:36px;border:1px solid var(--line);background:rgba(221,226,234,.04)}
+.bezel-in{border-radius:28px;overflow:hidden;position:relative;box-shadow:inset 0 1px 1px rgba(255,255,255,.12)}
+.art .bezel-in{aspect-ratio:1/1.08;background:radial-gradient(120% 90% at 30% 0%,var(--navy-3),var(--navy) 55%,#060a17)}
+/* carrossel do topo (mesma moldura da antiga ilustracao) */
+.car-track{position:absolute;inset:0;display:flex;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:none}
+.car-track::-webkit-scrollbar{display:none}
+.car-slide{position:relative;flex:none;width:100%;height:100%;margin:0;scroll-snap-align:start}
+.car-slide img{width:100%;height:100%;object-fit:cover;object-position:left top;-webkit-user-drag:none;user-select:none}
+.car-slide::after{content:"";position:absolute;inset:auto 0 0 0;height:42%;background:linear-gradient(to top,rgba(4,7,16,.92),rgba(4,7,16,0));pointer-events:none}
+.car-cap{position:absolute;left:20px;right:20px;bottom:44px;z-index:1;display:flex;flex-direction:column;gap:2px;pointer-events:none}
+.car-cap strong{font-size:17px;font-weight:700;letter-spacing:-.01em;color:#fff}
+.car-cap span{font-size:13px;color:#c3cad8}
+.car-dots{position:absolute;left:12px;right:12px;bottom:8px;z-index:2;display:flex;justify-content:center;gap:2px}
+.car-dots button{position:relative;width:28px;height:28px;padding:0;border:0;background:transparent;border-radius:50%}
+.car-dots button::before{content:"";position:absolute;left:50%;top:50%;width:8px;height:8px;margin:-4px 0 0 -4px;border-radius:50%;background:rgba(221,226,234,.38);transition:transform .4s var(--ease),background-color .4s var(--ease)}
+.car-dots button[aria-current="true"]::before{background:#fff;transform:scale(1.35)}
+
+section.sec{padding:130px 0;position:relative}
+.sec-head{margin-bottom:56px}
+.sec-head .lead{margin-top:20px}
+
+/* oferta */
+.offer{background:linear-gradient(180deg,var(--navy),#070c1c)}
+.offer .h2{max-width:15em}
+.offer-grid{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:20px}
+.cell{padding:8px;border-radius:30px;border:1px solid var(--line);background:rgba(6,7,10,.35)}
+.cell-in{height:100%;border-radius:22px;padding:30px;background:linear-gradient(160deg,var(--navy-2),#0b1330);box-shadow:inset 0 1px 1px rgba(255,255,255,.1)}
+.cell h3{font-size:22px;font-weight:700;letter-spacing:-.01em;margin-bottom:10px}
+.cell p{color:var(--mute);font-size:16px}
+.cell:first-child .cell-in{background:linear-gradient(160deg,#1b2c63,#0d1736)}
+.cell:first-child h3{font-size:26px}
+.cell:first-child p{color:#c3cad8;font-size:17px}
+
+/* oferta: transparencia */
+.clear{margin-top:20px;padding:8px;border-radius:30px;border:1px solid var(--line-2);background:rgba(6,7,10,.35)}
+.clear-in{border-radius:22px;padding:38px 36px;background:linear-gradient(160deg,#0d1736,#070b18);box-shadow:inset 0 1px 1px rgba(255,255,255,.1);display:grid;grid-template-columns:.8fr 1.2fr;gap:28px 56px;align-items:start}
+.clear h3{font-size:clamp(26px,3vw,36px);font-weight:700;letter-spacing:-.02em;line-height:1.1}
+.clear-in > div > p{color:var(--mute);margin-top:14px;font-size:16px}
+.clear-list li{padding:20px 0;border-top:1px solid var(--line)}
+.clear-list li:first-child{padding-top:0;border-top:0}
+.clear-list li:last-child{padding-bottom:0}
+.clear-list small{display:block;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--silver-2);margin-bottom:6px}
+.clear-list p{font-size:17px;color:#d3d9e4}
+.clear-list strong{color:#fff;font-weight:700}
+
+.invest{background:linear-gradient(180deg,var(--black),var(--navy))}
+.invest .clear{margin-top:0}
+
+/* quem faz */
+.who-grid{display:grid;grid-template-columns:320px 1fr;gap:64px;align-items:center}
+.who-photo .bezel-in{aspect-ratio:4/5;background:radial-gradient(120% 90% at 30% 0%,var(--navy-3),var(--navy) 55%,#060a17);display:grid;place-items:center}
+.who-photo img{width:100%;height:100%;object-fit:cover}
+.who-initials{font-size:64px;font-weight:800;letter-spacing:-.04em;line-height:1;opacity:.5}
+.who h2{margin-top:22px}
+.who-quote{margin-top:22px;font-size:clamp(20px,2.2vw,26px);line-height:1.45;color:#d3d9e4;max-width:26em;letter-spacing:-.01em}
+.who-role{margin-top:18px;color:var(--mute);font-size:15px}
+
+/* logo oficial (quando houver arquivo): recortada em círculo */
+.brand img{flex:none;width:36px;height:36px;border-radius:50%;object-fit:cover;border:1px solid var(--line-2)}
+
+/* projetos */
+.proj-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:22px}
+.card{grid-column:span 6;padding:8px;border-radius:32px;border:1px solid var(--line);background:rgba(16,27,61,.35);transition:transform .7s var(--ease),border-color .7s var(--ease)}
+.card-in{height:100%;display:flex;flex-direction:column;border-radius:24px;overflow:hidden;background:#0a0f1f;box-shadow:inset 0 1px 1px rgba(255,255,255,.08)}
+.shot{position:relative;display:block;aspect-ratio:16/10;overflow:hidden;background:var(--navy)}
+.shot img{width:100%;height:100%;object-fit:cover;object-position:top center;transition:transform 1.2s var(--ease)}
+.card-body{padding:24px 26px 26px;display:flex;flex-direction:column;gap:10px;flex:1}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{padding:5px 11px;border-radius:999px;border:1px solid var(--line-2);font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--silver)}
+.tag.hot{border-color:transparent;background:var(--metal-flat);color:#07090f}
+.card h3{font-size:28px;font-weight:700;letter-spacing:-.02em;line-height:1.1}
+.niche{color:var(--silver-2);font-size:15px;font-weight:500}
+.card p.desc{color:var(--mute);font-size:16px}
+.card .btn{align-self:flex-start;margin-top:auto}
+.card-body .btn{margin-top:14px}
+.card.wide{grid-column:span 12}
+.card.wide .card-in{display:grid;grid-template-columns:1.25fr 1fr}
+.card.wide .shots{position:relative;background:var(--navy);min-height:100%}
+.card.wide .shot{aspect-ratio:auto;height:100%;min-height:380px}
+.card.wide .shot:not(.inset) img{object-position:left top}
+.card.wide .shot.inset{position:absolute;right:18px;bottom:18px;width:46%;height:auto;min-height:0;aspect-ratio:16/10;border-radius:14px;border:1px solid var(--line-2);box-shadow:0 24px 50px -20px rgba(0,0,0,.8)}
+.card.wide .card-body{padding:36px 34px;justify-content:center}
+.feat{margin:6px 0 4px;padding:18px 20px;border-radius:18px;border:1px solid var(--line);background:rgba(221,226,234,.04)}
+.feat b{display:block;font-size:16px;font-weight:700;margin-bottom:8px}
+.feat li{position:relative;padding-left:22px;color:var(--mute);font-size:15px}
+.feat li + li{margin-top:4px}
+.feat li::before{content:"";position:absolute;left:2px;top:.62em;width:9px;height:5px;border-left:1.5px solid var(--silver);border-bottom:1.5px solid var(--silver);transform:rotate(-45deg)}
+@media (hover:hover) and (pointer:fine){
+  .card:hover{transform:translateY(-5px);border-color:var(--line-2)}
+  .card:hover .shot:not(.inset) img{transform:scale(1.035)}
+}
+.proj-note{margin-top:26px;color:var(--mute);font-size:15px}
+
+/* como funciona */
+.how{background:linear-gradient(180deg,#070c1c,var(--navy) 50%,#070c1c)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:s;border-top:1px solid var(--line)}
+.steps li{position:relative;padding:34px 28px 0 0}
+.steps li + li{padding-left:28px;border-left:1px solid var(--line)}
+.steps li::before{content:"";position:absolute;top:-5px;left:0;width:9px;height:9px;border-radius:50%;background:var(--silver)}
+.steps li + li::before{left:-5px}
+.steps .n{display:block;font-size:52px;font-weight:800;letter-spacing:-.04em;line-height:1;margin-bottom:18px}
+.steps h3{font-size:22px;font-weight:700;margin-bottom:8px}
+.steps p{color:var(--mute);font-size:16px}
+
+/* contato */
+.contact{text-align:center;background:radial-gradient(700px 380px at 50% 100%,rgba(34,58,140,.45),transparent 70%),var(--black)}
+.contact .h2{font-size:clamp(36px,5.4vw,68px);max-width:14em;margin-left:auto;margin-right:auto}
+.contact .lead{margin:22px auto 36px}
+.phone{margin-top:22px;color:var(--mute);font-size:15px}
+.phone a{color:var(--silver);text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--line-2)}
+
+footer{padding:30px 0;border-top:1px solid var(--line);color:var(--mute);font-size:13.5px;background:var(--black)}
+.foot{display:flex;align-items:center;justify-content:space-between;gap:14px 24px;flex-wrap:wrap}
+.foot .brand{font-size:14px;color:var(--text)}
+.foot .brand svg{width:22px;height:22px}
+.foot .brand img{width:30px;height:30px}
+
+/* entrada ao rolar */
+.js .rv{opacity:0;transform:translateY(30px);filter:blur(6px);transition:opacity .9s var(--ease),transform .9s var(--ease),filter .9s var(--ease);transition-delay:var(--d,0ms)}
+.js .rv.in{opacity:1;transform:none;filter:none}
+
+/* responsivo */
+@media (max-width:980px){
+  .nav-links,.nav > .btn{display:none}
+  .burger{display:block}
+  .menu{display:block;position:absolute;top:calc(100% + 10px);left:24px;right:24px;padding:8px 26px 24px;border:1px solid var(--line);border-radius:28px;background:rgba(8,13,30,.96);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);visibility:hidden;opacity:0;transform:translateY(-10px);transition:opacity .45s var(--ease),transform .45s var(--ease),visibility 0s .45s}
+  .menu.open{visibility:visible;opacity:1;transform:none;transition:opacity .45s var(--ease),transform .45s var(--ease),visibility 0s}
+  .menu a.l{display:block;padding:16px 0;border-bottom:1px solid var(--line);font-size:24px;font-weight:700;letter-spacing:-.02em;opacity:0;transform:translateY(12px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+  .menu.open a.l{opacity:1;transform:none}
+  .menu.open a.l:nth-of-type(1){transition-delay:.05s}
+  .menu.open a.l:nth-of-type(2){transition-delay:.1s}
+  .menu.open a.l:nth-of-type(3){transition-delay:.15s}
+  .menu.open a.l:nth-of-type(4){transition-delay:.2s}
+  .menu .btn{margin-top:22px}
+  .top{position:relative;padding:16px 0 0;background:var(--black)}
+  .hero{padding:56px 0 90px}
+  .hero-grid{grid-template-columns:1fr;gap:48px}
+  .art{max-width:420px}
+  .offer-grid{grid-template-columns:1fr}
+  .clear-in{grid-template-columns:1fr;padding:30px 28px}
+  .who-grid{grid-template-columns:1fr;gap:36px}
+  .who-photo{max-width:260px}
+  .card,.card.wide{grid-column:span 12}
+  .card.wide .card-in{display:flex}
+  .card.wide .shots{min-height:0;flex:none}
+  .card.wide .shot{min-height:0;height:auto;aspect-ratio:16/10}
+  .card.wide .shot.inset{position:static;width:100%;border-radius:0;border:0;border-top:1px solid var(--line);box-shadow:none}
+  .card.wide .card-body{padding:24px 26px 26px}
+  .steps{grid-template-columns:1fr 1fr;border-top:0}
+  .steps li,.steps li + li{padding:28px 20px 28px 0;border-left:0;border-top:1px solid var(--line)}
+  .steps li::before,.steps li + li::before{left:0}
+  section.sec{padding:92px 0}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .wrap{padding:0 16px}
+  .menu{left:16px;right:16px}
+  .nav{padding-left:20px}
+  .lead{font-size:17px}
+  .cta-row .btn,.contact .btn{width:100%;justify-content:space-between}
+  .sec-head{margin-bottom:40px}
+  .cell-in{padding:24px}
+  .clear-in{padding:26px 22px}
+  .card-body,.card.wide .card-body{padding:22px 20px 22px}
+  .card h3{font-size:25px}
+  .card .btn{align-self:stretch;justify-content:space-between}
+  .steps{grid-template-columns:1fr}
+  .bezel{border-radius:30px;padding:8px}
+  .bezel-in{border-radius:22px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition-duration:.01ms!important;transition-delay:0ms!important;animation-duration:.01ms!important}
+  .js .rv{transform:none;filter:none}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <nav class="nav" aria-label="Principal">
+      <a class="brand" href="#inicio" aria-label="Fulcro Agência, início">
+        <svg viewBox="0 0 26 26" fill="none" aria-hidden="true"><path d="M3 15.5 23 9.5" stroke="#dde2ea" stroke-width="1.8" stroke-linecap="round"/><path d="M13 14.5 18 22H8l5-7.5Z" fill="#dde2ea"/></svg>
+        FULCRO
+      </a>
+      <ul class="nav-links">
+        <li><a href="#oferta">A oferta</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#como-funciona">Como funciona</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+      <a class="btn btn-metal" data-wa href="#contato" target="_blank" rel="noopener">Quero meu site
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+      </a>
+      <button class="burger" id="burger" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu"><span></span><span></span></button>
+    </nav>
+    <div class="menu" id="menu">
+      <a class="l" href="#oferta">A oferta</a>
+      <a class="l" href="#projetos">Projetos</a>
+      <a class="l" href="#como-funciona">Como funciona</a>
+      <a class="l" href="#contato">Contato</a>
+      <a class="btn btn-metal" data-wa href="#contato" target="_blank" rel="noopener">Quero meu site gratuito
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow rv">Fulcro Agência, Santa Maria, RS</span>
+      <h1 class="title metal rv" style="--d:80ms">O ponto de apoio para o seu crescimento digital.</h1>
+      <p class="lead rv" style="--d:160ms">Estamos selecionando empresas de Santa Maria para receber um <strong>site profissional gratuito</strong>.</p>
+      <div class="cta-row rv" style="--d:240ms">
+        <a class="btn btn-metal" data-wa href="#contato" target="_blank" rel="noopener">Quero meu site gratuito
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </a>
+        <a class="btn btn-ghost" href="#projetos">Ver projetos
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></span>
+        </a>
+      </div>
+    </div>
+    <div class="art rv" style="--d:200ms">
+      <div class="bezel"><div class="bezel-in" id="car" role="region" aria-roledescription="carrossel" aria-label="Prints dos projetos conceito">
+        <div class="car-track" id="car-track" tabindex="0"></div>
+        <div class="car-dots" id="car-dots"></div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec offer" id="oferta">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow rv">A oferta</span>
+      <h2 class="title h2 rv" style="--d:80ms">Um site profissional, sem custo, para empresas selecionadas de Santa Maria.</h2>
+    </div>
+    <div class="offer-grid">
+      <div class="cell rv"><div class="cell-in">
+        <h3>Por que é gratuito</h3>
+        <p>Porque estamos montando o portfólio da agência. Você recebe um site profissional e nós ganhamos um projeto real para mostrar. É uma troca, e dizemos isso desde o começo.</p>
+      </div></div>
+      <div class="cell rv" style="--d:90ms"><div class="cell-in">
+        <h3>Para quem</h3>
+        <p>Empresas de Santa Maria, escolhidas por nós nesta fase de formação do portfólio.</p>
+      </div></div>
+      <div class="cell rv" style="--d:180ms"><div class="cell-in">
+        <h3>O que você recebe</h3>
+        <p>Um site feito para o seu negócio, que funciona bem no computador e no celular.</p>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="projetos">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow rv">Projetos</span>
+      <h2 class="title h2 rv" style="--d:80ms">Projetos conceito da Fulcro.</h2>
+      <p class="lead rv" style="--d:140ms">Sites criados para negócios fictícios, para demonstrar o que entregamos. Não são clientes.</p>
+    </div>
+    <div class="proj-grid" id="proj-grid"></div>
+    <noscript><p class="proj-note">Ative o JavaScript para ver os projetos.</p></noscript>
+  </div>
+</section>
+
+<section class="sec how" id="como-funciona">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow rv">Como funciona</span>
+      <h2 class="title h2 rv" style="--d:80ms">Quatro passos até o site no ar.</h2>
+    </div>
+    <ol class="steps">
+      <li class="rv"><span class="n metal">01</span><h3>Conversa</h3><p>Entendemos o seu negócio e o que o site precisa fazer por ele.</p></li>
+      <li class="rv" style="--d:90ms"><span class="n metal">02</span><h3>Criação</h3><p>Desenhamos o layout e construímos o site.</p></li>
+      <li class="rv" style="--d:180ms"><span class="n metal">03</span><h3>Aprovação</h3><p>Você revisa, pede ajustes e aprova.</p></li>
+      <li class="rv" style="--d:270ms"><span class="n metal">04</span><h3>Site no ar</h3><p>Publicamos o site e entregamos funcionando.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec who" id="quem-faz" hidden>
+  <div class="wrap who-grid">
+    <div class="who-photo rv">
+      <div class="bezel"><div class="bezel-in" id="who-photo"></div></div>
+    </div>
+    <div>
+      <span class="eyebrow rv">Quem faz</span>
+      <h2 class="title h2 rv" style="--d:80ms" id="who-name"></h2>
+      <p class="who-quote rv" style="--d:140ms" id="who-quote"></p>
+      <p class="who-role rv" style="--d:180ms">Fulcro Agência, Santa Maria, RS</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec contact" id="contato">
+  <div class="wrap">
+    <span class="eyebrow rv">Contato</span>
+    <h2 class="title h2 metal rv" style="--d:80ms">Quer o site gratuito da sua empresa?</h2>
+    <p class="lead rv" style="--d:140ms">Chame no WhatsApp e conte um pouco sobre o seu negócio.</p>
+    <a class="btn btn-metal rv" style="--d:200ms" data-wa href="#contato" target="_blank" rel="noopener">Chamar no WhatsApp
+      <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+    </a>
+    <p class="phone rv" style="--d:240ms">WhatsApp: <a data-wa href="#contato" target="_blank" rel="noopener" id="phone-text"></a></p>
+  </div>
+</section>
+<section class="sec invest" id="quanto-custa">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow rv">Transparência</span>
+      <h2 class="title h2 rv" style="--d:80ms">Como funciona e quanto custa.</h2>
+    </div>
+    <div class="clear rv">
+      <div class="clear-in">
+        <div>
+          <h3>O que é gratuito e o que não é</h3>
+          <p>Sem letras miúdas: você sabe de tudo antes de começar.</p>
+        </div>
+        <ul class="clear-list">
+          <li>
+            <small>Criação do site</small>
+            <p><strong>A criação do site não tem custo.</strong> Estamos montando o portfólio da agência: você recebe o site e nós ganhamos um projeto real para mostrar.</p>
+          </li>
+          <li>
+            <small>Hospedagem, paga por você à Wix</small>
+            <p>Você paga só a hospedagem na Wix: <strong>R$ 16 por mês no primeiro ano (R$ 192), com domínio incluso.</strong> Depois do primeiro ano, vale o valor normal da plataforma.</p>
+          </li>
+          <li>
+            <small>Assinatura</small>
+            <p><strong>Você só assina depois de ver e aprovar o site pronto.</strong></p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span class="brand">
+      <svg viewBox="0 0 26 26" fill="none" aria-hidden="true"><path d="M3 15.5 23 9.5" stroke="#dde2ea" stroke-width="1.8" stroke-linecap="round"/><path d="M13 14.5 18 22H8l5-7.5Z" fill="#dde2ea"/></svg>
+      FULCRO
+    </span>
+    <span>Fulcro Agência, Santa Maria, RS</span>
+    <span>Os projetos exibidos são conceitos, com dados fictícios.</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+  document.documentElement.classList.add('js');
+
+  /* =====================================================================
+     CONFIGURAÇÃO: edite só este bloco.
+     ===================================================================== */
+
+  /* WhatsApp da agência: só números, com 55 + DDD. */
+  var WHATSAPP = '5555984535365';
+  var WHATSAPP_EXIBIR = '(55) 98453-5365';
+  var WHATSAPP_MENSAGEM = 'Olá! Vi o portfólio da Fulcro e quero saber mais sobre o site gratuito.';
+
+  /* LOGO: nome do arquivo da logo oficial. Aparece recortada em círculo no topo e no rodapé.
+     Vazio ('') ou arquivo ausente mantém o ícone da alavanca. */
+  var LOGO = 'logo.png';
+
+  /* QUEM FAZ: a seção só aparece quando "nome" estiver preenchido.
+     - foto: nome do arquivo (ex.: 'foto.jpg'). Vazio mostra as iniciais do nome. */
+  var QUEM_FAZ = {
+    nome: 'Anita',
+    frase: 'Sou de Santa Maria, RS. A Fulcro cria sites profissionais para ajudar as empresas daqui a crescer na internet.',
+    foto: 'foto.jpg'
+  };
+
+  /* PROJETOS: para adicionar um projeto, copie um bloco { ... } e mude os dados.
+     - print:   endereço da imagem do site (no Wix, o link da imagem na mídia).
+     - url:     link do site publicado. Enquanto estiver vazio (''), o botão
+                vira "Ver prévia" e abre o print ampliado.
+     - destaque (opcional): vira um card largo, com um segundo print e uma lista. */
+  var PROJETOS = [
+    {
+      nome: 'Patas & Cia',
+      nicho: 'Clínica veterinária',
+      descricao: 'Site com serviços, plantão 24h e agendamento de consulta pelo WhatsApp.',
+      print: 'prints/patas-e-cia.jpg',
+      url: 'sites/patas-e-cia/index.html'
+    },
+    {
+      nome: 'Navalha de Ouro',
+      nicho: 'Barbearia',
+      descricao: 'Visual escuro e sofisticado, com serviços, Dia do Noivo e agendamento pelo WhatsApp.',
+      print: 'prints/barbearia-navalha-de-ouro.jpg',
+      url: 'sites/barbearia-navalha-de-ouro/index.html'
+    },
+    {
+      nome: 'Forno da Nonna',
+      nicho: 'Pizzaria',
+      descricao: 'Site de pizzaria com cardápio interativo e pedido direto pelo WhatsApp.',
+      print: 'prints/forno-da-nonna-pizzaria.jpg',
+      url: 'sites/forno-da-nonna-pizzaria/index.html',
+      destaque: {
+        etiqueta: 'Pedido pelo WhatsApp',
+        titulo: 'O cliente monta o pedido no próprio site',
+        itens: [
+          'Escolhe os itens, o tamanho e a quantidade',
+          'Vê o total somado na hora',
+          'Envia o pedido já escrito para o WhatsApp da pizzaria'
+        ],
+        print: 'prints/forno-da-nonna-pedido.jpg'
+      }
+    }
+  ];
+
+  /* ===================== fim da configuração ===================== */
+
+  var waUrl = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(WHATSAPP_MENSAGEM);
+  document.querySelectorAll('[data-wa]').forEach(function(a){a.href = waUrl;});
+  document.getElementById('phone-text').textContent = WHATSAPP_EXIBIR;
+
+  /* logo oficial */
+  if(LOGO){
+    var logo = new Image();
+    logo.onload = function(){
+      document.querySelectorAll('.brand').forEach(function(brand){
+        var img = new Image();
+        img.alt = ''; img.width = 36; img.height = 36; img.src = LOGO;
+        var ico = brand.querySelector('svg');
+        if(ico) brand.replaceChild(img, ico);
+      });
+    };
+    logo.src = LOGO; /* se o arquivo não carregar, o ícone atual permanece */
+  }
+
+  /* quem faz */
+  if(QUEM_FAZ.nome){
+    var who = document.getElementById('quem-faz');
+    who.hidden = false;
+    document.getElementById('who-name').textContent = QUEM_FAZ.nome;
+    document.getElementById('who-quote').textContent = '“' + QUEM_FAZ.frase + '”';
+    var slot = document.getElementById('who-photo');
+    var iniciais = QUEM_FAZ.nome.trim().split(/\s+/).map(function(w){return w.charAt(0);}).filter(Boolean);
+    var ini = document.createElement('span');
+    ini.className = 'who-initials metal';
+    ini.setAttribute('aria-hidden', 'true');
+    ini.textContent = ((iniciais[0] || '') + (iniciais.length > 1 ? iniciais[iniciais.length - 1] : '')).toUpperCase();
+    slot.appendChild(ini);
+    if(QUEM_FAZ.foto){
+      var foto = new Image();
+      foto.alt = 'Foto de ' + QUEM_FAZ.nome;
+      foto.onload = function(){slot.textContent = ''; slot.appendChild(foto);};
+      foto.src = QUEM_FAZ.foto;
+    }
+  }
+
+  var ARROW = '<span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>';
+
+  function el(tag, cls, text){
+    var n = document.createElement(tag);
+    if(cls) n.className = cls;
+    if(text != null) n.textContent = text;
+    return n;
+  }
+  function shot(src, alt, cls){
+    var a = el('a', 'shot' + (cls ? ' ' + cls : ''));
+    a.href = src; a.target = '_blank'; a.rel = 'noopener';
+    a.setAttribute('aria-label', 'Abrir imagem ampliada: ' + alt);
+    var img = el('img');
+    img.src = src; img.alt = alt; img.loading = 'lazy'; img.width = 1440; img.height = 900;
+    a.appendChild(img);
+    return a;
+  }
+
+  var grid = document.getElementById('proj-grid');
+  var normais = PROJETOS.filter(function(p){return !p.destaque;}).length;
+  var vistos = 0;
+
+  PROJETOS.forEach(function(p, i){
+    var card = el('article', 'card rv' + (p.destaque ? ' wide' : ''));
+    card.style.setProperty('--d', (i % 2) * 90 + 'ms');
+    var inner = el('div', 'card-in');
+
+    if(p.destaque){
+      var shots = el('div', 'shots');
+      shots.appendChild(shot(p.print, 'Tela inicial do site ' + p.nome));
+      if(p.destaque.print) shots.appendChild(shot(p.destaque.print, 'Tela de pedido do site ' + p.nome, 'inset'));
+      inner.appendChild(shots);
+    } else {
+      inner.appendChild(shot(p.print, 'Tela inicial do site ' + p.nome));
+      vistos++;
+      /* um card comum sozinho na última linha ocupa a largura toda */
+      if(normais % 2 === 1 && vistos === normais) card.style.gridColumn = '1 / -1';
+    }
+
+    var body = el('div', 'card-body');
+    var tags = el('div', 'tags');
+    tags.appendChild(el('span', 'tag', 'Projeto conceito'));
+    if(p.destaque && p.destaque.etiqueta) tags.appendChild(el('span', 'tag hot', p.destaque.etiqueta));
+    body.appendChild(tags);
+    body.appendChild(el('h3', '', p.nome));
+    body.appendChild(el('p', 'niche', p.nicho));
+    body.appendChild(el('p', 'desc', p.descricao));
+
+    if(p.destaque){
+      var feat = el('div', 'feat');
+      feat.appendChild(el('b', '', p.destaque.titulo));
+      var ul = el('ul');
+      (p.destaque.itens || []).forEach(function(t){ul.appendChild(el('li', '', t));});
+      feat.appendChild(ul);
+      body.appendChild(feat);
+    }
+
+    var btn = el('a', 'btn btn-ghost');
+    btn.href = p.url || p.print; btn.target = '_blank'; btn.rel = 'noopener';
+    btn.innerHTML = (p.url ? 'Ver site' : 'Ver prévia') + ARROW;
+    btn.setAttribute('aria-label', (p.url ? 'Ver site ' : 'Ver prévia do site ') + p.nome);
+    body.appendChild(btn);
+
+    inner.appendChild(body);
+    card.appendChild(inner);
+    grid.appendChild(card);
+  });
+
+  /* carrossel do topo: usa a lista PROJETOS (print de cada projeto e, se houver, o print do destaque) */
+  (function(){
+    var track = document.getElementById('car-track'), dotsEl = document.getElementById('car-dots');
+    var region = document.getElementById('car');
+    var INTERVALO = 3500;
+    var itens = [];
+    PROJETOS.forEach(function(p){
+      if(p.print) itens.push({src: p.print, nome: p.nome, sub: p.nicho});
+      if(p.destaque && p.destaque.print) itens.push({src: p.destaque.print, nome: p.nome, sub: p.destaque.etiqueta || p.nicho});
+    });
+    if(!itens.length){region.parentNode.parentNode.hidden = true; return;}
+
+    var dots = [];
+    itens.forEach(function(it, i){
+      var fig = el('figure', 'car-slide');
+      fig.setAttribute('role', 'group');
+      fig.setAttribute('aria-roledescription', 'slide');
+      fig.setAttribute('aria-label', (i + 1) + ' de ' + itens.length + ': ' + it.nome);
+      var img = el('img');
+      img.src = it.src; img.alt = 'Print do site ' + it.nome + ' (' + it.sub + ')';
+      img.width = 1440; img.height = 900; img.draggable = false;
+      if(i > 0) img.loading = 'lazy';
+      var cap = el('figcaption', 'car-cap');
+      cap.appendChild(el('strong', '', it.nome));
+      cap.appendChild(el('span', '', it.sub));
+      fig.appendChild(img); fig.appendChild(cap);
+      track.appendChild(fig);
+
+      var d = el('button');
+      d.type = 'button';
+      d.setAttribute('aria-label', 'Mostrar ' + it.nome + ', ' + it.sub);
+      d.addEventListener('click', function(){go(i); play();});
+      dotsEl.appendChild(d); dots.push(d);
+    });
+
+    var calm = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var index = 0, timer = null, visible = false, paused = false;
+
+    var auto = false, autoTimer = null;
+    function mark(){
+      dots.forEach(function(d, i){d.setAttribute('aria-current', i === index ? 'true' : 'false');});
+    }
+    /* rolagem feita pelo dedo ou pelo mouse: o slide atual passa a ser o mais próximo */
+    function update(){
+      if(auto) return;
+      var w = track.clientWidth || 1;
+      index = Math.max(0, Math.min(itens.length - 1, Math.round(track.scrollLeft / w)));
+      mark();
+    }
+    /* troca programada: o índice muda na hora, a rolagem suave só acompanha */
+    function go(i){
+      index = (i + itens.length) % itens.length;
+      mark();
+      auto = true;
+      clearTimeout(autoTimer);
+      autoTimer = setTimeout(function(){auto = false;}, 1200);
+      track.scrollTo({left: index * track.clientWidth, behavior: calm ? 'auto' : 'smooth'});
+    }
+    function play(){
+      clearInterval(timer);
+      if(calm || !visible || paused || itens.length < 2) return;
+      timer = setInterval(function(){go(index + 1);}, INTERVALO);
+    }
+    function pause(on){paused = on; play();}
+
+    track.addEventListener('scroll', update, {passive: true});
+    track.addEventListener('keydown', function(e){
+      if(e.key === 'ArrowRight'){e.preventDefault(); go(index + 1); play();}
+      if(e.key === 'ArrowLeft'){e.preventDefault(); go(index - 1); play();}
+    });
+    /* pausa enquanto o mouse ou o dedo está sobre o carrossel */
+    track.addEventListener('pointerdown', function(){auto = false; clearTimeout(autoTimer);});
+    track.addEventListener('touchstart', function(){auto = false; clearTimeout(autoTimer);}, {passive: true});
+    region.addEventListener('pointerenter', function(){pause(true);});
+    region.addEventListener('pointerleave', function(){pause(false);});
+    region.addEventListener('pointercancel', function(){pause(false);});
+    region.addEventListener('focusin', function(){pause(true);});
+    region.addEventListener('focusout', function(){pause(false);});
+    window.addEventListener('resize', function(){track.scrollLeft = index * track.clientWidth;});
+
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(function(en){visible = en[0].isIntersecting; play();}, {threshold: .4}).observe(region);
+    } else {visible = true;}
+    mark(); play();
+  })();
+
+  /* menu do celular */
+  var burger = document.getElementById('burger'), menu = document.getElementById('menu');
+  function setMenu(open){
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    burger.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+    menu.classList.toggle('open', open);
+  }
+  burger.addEventListener('click', function(){setMenu(burger.getAttribute('aria-expanded') !== 'true');});
+  menu.addEventListener('click', function(e){if(e.target.closest('a')) setMenu(false);});
+  document.addEventListener('keydown', function(e){if(e.key === 'Escape') setMenu(false);});
+
+  /* entrada ao rolar */
+  var els = document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){en.target.classList.add('in'); io.unobserve(en.target);}
+      });
+    }, {threshold: .12, rootMargin: '0px 0px -6% 0px'});
+    els.forEach(function(x){io.observe(x);});
+  } else {
+    els.forEach(function(x){x.classList.add('in');});
+  }
+})();
+</script>
+</body>
+</html>

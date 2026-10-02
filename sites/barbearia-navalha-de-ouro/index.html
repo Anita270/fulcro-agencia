@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Barbearia Navalha de Ouro · Santa Maria, RS</title>
+<meta name="description" content="Barbearia Navalha de Ouro em Santa Maria, RS. Corte, barba, pigmentação, sobrancelha e Dia do Noivo. Agendamento pelo WhatsApp. Projeto conceito.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0a0807;
+  --ink-2:#120e0b;
+  --ink-3:#1b1511;
+  --wood:#3a2414;
+  --wood-2:#2a1a0e;
+  --gold:#c9a24b;
+  --gold-2:#e2c47a;
+  --cream:#f2e8d5;
+  --mute:#a89c88;
+  --line:rgba(201,162,75,.22);
+  --ease:cubic-bezier(.32,.72,0,1);
+  --ease-out:cubic-bezier(.23,1,.32,1);
+  --display:"Cormorant Garamond","Iowan Old Style","Palatino Linotype",Georgia,serif;
+  --body:"Manrope","Segoe UI",system-ui,-apple-system,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ink);color:var(--cream);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,p{margin:0}
+:focus-visible{outline:2px solid var(--gold-2);outline-offset:3px;border-radius:6px}
+.wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 24px}
+section{position:relative}
+
+/* ---------- tipografia ---------- */
+.eyebrow{display:inline-flex;align-items:center;gap:10px;padding:7px 14px;border:1px solid var(--line);border-radius:999px;font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+.eyebrow::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--gold)}
+.display{font-family:var(--display);font-weight:500;line-height:.98;letter-spacing:-.01em;color:var(--cream)}
+.display em{font-style:italic;color:var(--gold-2);font-weight:400}
+.lead{color:var(--mute);font-size:18px;max-width:34em}
+
+/* ---------- botões (button-in-button) ---------- */
+.btn{display:inline-flex;align-items:center;gap:14px;padding:8px 8px 8px 28px;border-radius:999px;font-weight:600;font-size:13px;letter-spacing:.14em;text-transform:uppercase;border:1px solid transparent;cursor:pointer;transition:transform .5s var(--ease),background-color .5s var(--ease),border-color .5s var(--ease),color .5s var(--ease)}
+.btn .ico{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;transition:transform .5s var(--ease)}
+.btn .ico svg{width:16px;height:16px}
+.btn-gold{background:var(--gold);color:var(--ink)}
+.btn-gold .ico{background:rgba(10,8,7,.14)}
+.btn-ghost{border-color:rgba(242,232,213,.28);color:var(--cream);padding-left:26px}
+.btn-ghost .ico{background:rgba(242,232,213,.1)}
+.btn:active{transform:scale(.97)}
+@media (hover:hover) and (pointer:fine){
+  .btn-gold:hover{background:var(--gold-2)}
+  .btn-ghost:hover{border-color:var(--gold);color:var(--gold-2)}
+  .btn:hover .ico{transform:translate(3px,-2px) scale(1.06)}
+}
+
+/* ---------- cabeçalho (não fixo: funciona dentro do iframe do Wix) ---------- */
+.top{position:absolute;top:0;left:0;right:0;z-index:20;padding:22px 0}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 12px 10px 26px;border:1px solid var(--line);border-radius:999px;background:rgba(10,8,7,.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+.brand{font-family:var(--display);font-size:22px;font-weight:600;letter-spacing:.2em;color:var(--gold);white-space:nowrap}
+.nav-links{display:flex;gap:34px;list-style:none;margin:0;padding:0}
+.nav-links a{font-size:13px;font-weight:500;letter-spacing:.08em;color:var(--cream);opacity:.82;transition:opacity .4s var(--ease),color .4s var(--ease)}
+@media (hover:hover){.nav-links a:hover{opacity:1;color:var(--gold-2)}}
+.nav .btn{padding:6px 6px 6px 22px;font-size:12px}
+.nav .btn .ico{width:34px;height:34px}
+.burger{display:none;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:transparent;position:relative;cursor:pointer;color:var(--cream)}
+.burger span{position:absolute;left:13px;right:13px;height:1.5px;background:currentColor;border-radius:2px;transition:transform .5s var(--ease),opacity .3s var(--ease)}
+.burger span:nth-child(1){top:17px}
+.burger span:nth-child(2){top:25px}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(4px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){transform:translateY(-4px) rotate(-45deg)}
+.menu{display:none}
+
+/* ---------- hero ---------- */
+.hero{padding:170px 0 110px;background:radial-gradient(900px 520px at 85% 20%,rgba(201,162,75,.14),transparent 60%),var(--ink);overflow:hidden}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.07;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:72px;align-items:center;position:relative;z-index:1}
+.hero h1{font-size:clamp(48px,7.2vw,96px);margin:26px 0 26px}
+.hero .lead{margin-bottom:38px}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px}
+.hero-meta{display:flex;gap:40px;margin-top:56px;padding-top:28px;border-top:1px solid var(--line)}
+.hero-meta strong{display:block;font-family:var(--display);font-size:34px;font-weight:500;color:var(--gold-2);line-height:1}
+.hero-meta span{font-size:13px;color:var(--mute);letter-spacing:.04em}
+
+/* double bezel */
+.bezel{padding:10px;border-radius:40px;background:linear-gradient(160deg,rgba(201,162,75,.16),rgba(201,162,75,.04));border:1px solid var(--line)}
+.bezel-in{border-radius:30px;overflow:hidden;position:relative;box-shadow:inset 0 1px 1px rgba(255,255,255,.12)}
+.bezel-in img{width:100%;height:100%;object-fit:cover}
+.hero-photo .bezel-in{aspect-ratio:4/5}
+.hero-photo{position:relative}
+.badge{position:absolute;left:-28px;bottom:48px;display:flex;align-items:center;gap:14px;padding:14px 22px 14px 16px;border-radius:999px;background:rgba(10,8,7,.82);border:1px solid var(--line);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.badge i{width:42px;height:42px;border-radius:50%;background:var(--gold);display:grid;place-items:center;color:var(--ink);font-style:normal;font-family:var(--display);font-weight:600;font-size:20px}
+.badge b{display:block;font-size:13px;letter-spacing:.06em}
+.badge small{color:var(--mute);font-size:12px}
+
+/* ---------- seções ---------- */
+.block{padding:130px 0}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:64px;flex-wrap:wrap}
+.sec-head h2{font-size:clamp(40px,5.4vw,72px);margin-top:22px;max-width:11em}
+.sec-head p{max-width:26em}
+
+/* serviços: tabela de preços */
+.prices{margin-bottom:64px;border-radius:32px;padding:8px;background:var(--ink-2);border:1px solid var(--line)}
+.prices ul{margin:0;padding:6px 28px;list-style:none;border-radius:24px;background:var(--ink-3);box-shadow:inset 0 1px 1px rgba(255,255,255,.08);display:grid;grid-template-columns:1fr 1fr;column-gap:56px}
+.prices li{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:16px 0;border-top:1px solid var(--line)}
+.prices li:nth-child(-n+2){border-top:0}
+.prices span{font-family:var(--display);font-weight:500;font-size:26px;line-height:1.1;color:var(--cream)}
+.prices b{flex:none;font-size:15px;font-weight:600;letter-spacing:.04em;color:var(--gold)}
+@media (max-width:760px){
+  .prices{margin-bottom:40px}
+  .prices ul{grid-template-columns:1fr;padding:4px 22px}
+  .prices li:nth-child(2){border-top:1px solid var(--line)}
+}
+
+/* serviços: bento assimétrico */
+.bento{display:grid;grid-template-columns:repeat(12,1fr);gap:20px}
+.card{grid-column:span 4;border-radius:32px;padding:8px;background:var(--ink-2);border:1px solid var(--line);transition:transform .7s var(--ease),border-color .7s var(--ease)}
+.card.w7{grid-column:span 7}
+.card.w5{grid-column:span 5}
+.card-in{height:100%;border-radius:24px;background:var(--ink-3);box-shadow:inset 0 1px 1px rgba(255,255,255,.08);overflow:hidden;display:flex;flex-direction:column}
+.card-img{position:relative;overflow:hidden;aspect-ratio:16/9}
+.card.w5 .card-img,.card.w7 .card-img{aspect-ratio:16/10}
+.card:not(.w7):not(.w5) .card-img{aspect-ratio:4/3}
+.card-img img{width:100%;height:100%;object-fit:cover;filter:saturate(.85) contrast(1.05);transition:transform 1.2s var(--ease)}
+.card-img::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,var(--ink-3),transparent 55%)}
+.card-body{padding:6px 28px 28px;display:flex;flex-direction:column;gap:10px;flex:1}
+.card .num{font-size:12px;letter-spacing:.2em;color:var(--gold);font-weight:600}
+.card h3{font-family:var(--display);font-weight:500;font-size:36px;line-height:1.05;color:var(--cream)}
+.card p{color:var(--mute);font-size:15px}
+.card .more{margin-top:auto;min-height:44px;padding-top:14px;display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.card .more svg{width:14px;height:14px;transition:transform .5s var(--ease)}
+@media (hover:hover) and (pointer:fine){
+  .card:hover{transform:translateY(-6px);border-color:rgba(201,162,75,.5)}
+  .card:hover .card-img img{transform:scale(1.05)}
+  .card:hover .more svg{transform:translate(4px,-3px)}
+}
+
+/* dia do noivo: madeira */
+.noivo{padding:130px 0;background:
+  repeating-linear-gradient(92deg,rgba(0,0,0,.18) 0 2px,transparent 2px 9px,rgba(255,220,170,.04) 9px 10px,transparent 10px 23px),
+  repeating-linear-gradient(88deg,rgba(0,0,0,.14) 0 1px,transparent 1px 31px),
+  linear-gradient(180deg,#3d2616,#2c1b0f 70%,#241509)}
+.noivo-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.noivo h2{font-size:clamp(40px,5.2vw,68px);margin:24px 0}
+.noivo .lead{color:#d8cbb3;margin-bottom:30px}
+.checks{list-style:none;margin:0 0 40px;padding:0;display:grid;gap:14px}
+.checks li{display:flex;gap:14px;align-items:center;color:var(--cream);font-size:16px}
+.checks li::before{content:"";flex:none;width:22px;height:22px;border-radius:50%;border:1px solid var(--gold);background:radial-gradient(circle,var(--gold) 0 3px,transparent 4px)}
+.noivo .bezel{background:rgba(10,8,7,.35)}
+.noivo .bezel-in{aspect-ratio:4/5}
+
+/* sobre */
+.about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:80px;align-items:center}
+.about-photo .bezel-in{aspect-ratio:1/1}
+.about h2{font-size:clamp(38px,4.8vw,64px);margin:24px 0 24px}
+.about p+p{margin-top:16px}
+.about p{color:var(--mute);font-size:17px}
+.stats{display:flex;gap:48px;margin-top:44px;padding-top:30px;border-top:1px solid var(--line);flex-wrap:wrap}
+.stats strong{display:block;font-family:var(--display);font-size:52px;font-weight:500;color:var(--gold-2);line-height:1}
+.stats span{font-size:13px;color:var(--mute);letter-spacing:.06em}
+
+/* contato */
+.contact{padding:130px 0;background:radial-gradient(800px 400px at 50% 0%,rgba(201,162,75,.12),transparent 70%),var(--ink-2);border-top:1px solid var(--line)}
+.contact-top{text-align:center;max-width:760px;margin:0 auto 70px}
+.contact-top h2{font-size:clamp(44px,6.4vw,88px);margin:24px 0 22px}
+.contact-top .lead{margin:0 auto 34px}
+.info{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.info-item{padding:8px;border-radius:28px;border:1px solid var(--line);background:var(--ink)}
+.info-in{border-radius:20px;background:var(--ink-3);padding:26px 24px;height:100%;box-shadow:inset 0 1px 1px rgba(255,255,255,.07)}
+.info-in small{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:10px}
+.info-in b{font-weight:500;font-size:16px;color:var(--cream);display:block;overflow-wrap:anywhere}
+.info-in span{display:block;font-size:14px;color:var(--mute);margin-top:4px}
+a.info-in{display:block;transition:background-color .5s var(--ease)}
+@media (hover:hover){a.info-in:hover{background:#241b15}}
+
+footer{padding:34px 0;border-top:1px solid var(--line);background:var(--ink);font-size:13px;color:var(--mute)}
+.foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+/* ---------- reveal ---------- */
+.js .rv{opacity:0;transform:translateY(34px);filter:blur(6px);transition:opacity 1s var(--ease),transform 1s var(--ease),filter 1s var(--ease);transition-delay:var(--d,0ms)}
+.js .rv.in{opacity:1;transform:none;filter:none}
+
+/* ---------- responsivo ---------- */
+@media (max-width:980px){
+  .nav-links,.nav>.btn{display:none}
+  .burger{display:block}
+  .menu{display:block;position:absolute;top:calc(100% + 10px);left:24px;right:24px;border:1px solid var(--line);border-radius:28px;background:rgba(10,8,7,.94);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);padding:10px 26px 24px;visibility:hidden;opacity:0;transform:translateY(-10px);transition:opacity .5s var(--ease),transform .5s var(--ease),visibility 0s .5s}
+  .menu.open{visibility:visible;opacity:1;transform:none;transition:opacity .5s var(--ease),transform .5s var(--ease),visibility 0s}
+  .menu a.l{display:block;padding:16px 0;border-bottom:1px solid var(--line);font-family:var(--display);font-size:28px;color:var(--cream);opacity:0;transform:translateY(14px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+  .menu.open a.l{opacity:1;transform:none}
+  .menu.open a.l:nth-of-type(1){transition-delay:.06s}
+  .menu.open a.l:nth-of-type(2){transition-delay:.11s}
+  .menu.open a.l:nth-of-type(3){transition-delay:.16s}
+  .menu.open a.l:nth-of-type(4){transition-delay:.21s}
+  .menu .btn{margin-top:22px}
+  .top{position:relative;padding:16px 0 0;background:var(--ink)}
+  .hero{padding-top:56px}
+  .hero-grid,.noivo-grid,.about-grid{grid-template-columns:1fr;gap:56px}
+  .badge{left:14px;bottom:26px}
+  .card,.card.w7,.card.w5{grid-column:span 12}
+  .card:not(.w7):not(.w5) .card-img{aspect-ratio:16/10}
+  .info{grid-template-columns:1fr 1fr}
+  .block,.noivo,.contact{padding:90px 0}
+}
+@media (max-width:560px){
+  .wrap{padding:0 16px}
+  .menu{left:16px;right:16px}
+  .brand{font-size:18px;letter-spacing:.14em}
+  .nav{padding-left:20px}
+  .hero{padding-bottom:80px}
+  .hero-meta{gap:26px}
+  .lead{font-size:16px}
+  .cta-row .btn{width:100%;justify-content:space-between}
+  .sec-head{margin-bottom:44px}
+  .card h3{font-size:32px}
+  .info{grid-template-columns:1fr}
+  .stats{gap:30px}
+  .bezel{border-radius:30px;padding:8px}
+  .bezel-in{border-radius:22px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition-duration:.01ms!important;transition-delay:0ms!important;animation-duration:.01ms!important}
+  .js .rv{transform:none;filter:none}
+}
+/* aviso de projeto conceito */
+.aviso-conceito{margin:0;padding:9px 16px;background:#0b0b0d;color:#f1f1f1;font:500 13px/1.4 system-ui,-apple-system,"Segoe UI",sans-serif;text-align:center;letter-spacing:.01em}
+.aviso-conceito b{font-weight:700}
+</style>
+</head>
+<body>
+
+<p class="aviso-conceito"><b>Projeto conceito da Fulcro Agência.</b> Negócio, endereço, telefone e preços são fictícios.</p>
+<div style="position:relative">
+<header class="top">
+  <div class="wrap" style="position:relative">
+    <nav class="nav" aria-label="Principal">
+      <a class="brand" href="#inicio" aria-label="Navalha de Ouro, início">NAVALHA DE OURO</a>
+      <ul class="nav-links">
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#noivo">Dia do Noivo</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+      <a class="btn btn-gold" href="https://wa.me/5555999990001?text=Ol%C3%A1!%20Quero%20agendar%20um%20hor%C3%A1rio%20na%20Navalha%20de%20Ouro." target="_blank" rel="noopener">Agendar
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+      </a>
+      <button class="burger" id="burger" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu"><span></span><span></span></button>
+    </nav>
+    <div class="menu" id="menu">
+      <a class="l" href="#servicos">Serviços</a>
+      <a class="l" href="#noivo">Dia do Noivo</a>
+      <a class="l" href="#sobre">Sobre</a>
+      <a class="l" href="#contato">Contato</a>
+      <a class="btn btn-gold" href="https://wa.me/5555999990001?text=Ol%C3%A1!%20Quero%20agendar%20um%20hor%C3%A1rio%20na%20Navalha%20de%20Ouro." target="_blank" rel="noopener">Agendar no WhatsApp
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow rv">Santa Maria · RS</span>
+      <h1 class="display rv" style="--d:80ms">A arte da navalha, no <em>ponto de ouro.</em></h1>
+      <p class="lead rv" style="--d:160ms">Corte, barba e ritual. Atendimento premium para o homem que cuida do próprio estilo, do primeiro corte ao Dia do Noivo.</p>
+      <div class="cta-row rv" style="--d:240ms">
+        <a class="btn btn-gold" href="https://wa.me/5555999990001?text=Ol%C3%A1!%20Quero%20agendar%20um%20hor%C3%A1rio%20na%20Navalha%20de%20Ouro." target="_blank" rel="noopener">Agendar no WhatsApp
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </a>
+        <a class="btn btn-ghost" href="#servicos">Ver serviços
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></span>
+        </a>
+      </div>
+      <div class="hero-meta rv" style="--d:320ms">
+        <div><strong>6</strong><span>serviços</span></div>
+        <div><strong>Seg–Sáb</strong><span>9h às 20h</span></div>
+        <div><strong>Centro</strong><span>Santa Maria, RS</span></div>
+      </div>
+    </div>
+    <div class="hero-photo rv" style="--d:200ms">
+      <div class="bezel"><div class="bezel-in">
+        <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=1000&q=75&auto=format&fit=crop" width="1000" height="1250" alt="Barbeiro aparando a barba de um cliente com tesoura, em ambiente de luz baixa">
+      </div></div>
+      <div class="badge" aria-hidden="true"><i>N</i><div><b>Navalha de Ouro</b><small>Barbearia premium</small></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="servicos">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow rv">Serviços</span>
+        <h2 class="display rv" style="--d:80ms">Cada detalhe, <em>no fio da navalha.</em></h2>
+      </div>
+      <p class="lead rv" style="--d:140ms">Escolha o ritual e agende direto pelo WhatsApp. Sem fila, sem pressa.</p>
+    </div>
+
+    <div class="prices rv" aria-label="Tabela de preços">
+      <ul>
+        <li><span>Corte</span><b>R$ 55</b></li>
+        <li><span>Barba</span><b>R$ 45</b></li>
+        <li><span>Corte + Barba</span><b>R$ 90</b></li>
+        <li><span>Pigmentação</span><b>R$ 40</b></li>
+        <li><span>Sobrancelha</span><b>R$ 20</b></li>
+        <li><span>Dia do Noivo</span><b>Sob consulta</b></li>
+      </ul>
+    </div>
+
+    <div class="bento">
+      <article class="card w7 rv">
+        <div class="card-in">
+          <div class="card-img"><img loading="lazy" src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=1000&q=75&auto=format&fit=crop" width="1000" height="625" alt="Barbeiro finalizando um corte degradê com navalha"></div>
+          <div class="card-body">
+            <span class="num">01</span>
+            <h3>Corte</h3>
+            <p>Tesoura, máquina e acabamento na navalha. Do clássico ao degradê, desenhado para o seu rosto.</p>
+            <a class="more" href="https://wa.me/5555999990001?text=Ol%C3%A1!%20Quero%20agendar%20um%20corte." target="_blank" rel="noopener">Agendar corte <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card w5 rv" style="--d:100ms">
+        <div class="card-in">
+          <div class="card-img"><img loading="lazy" src="https://images.unsplash.com/photo-1532710093739-9470acff878f?w=900&q=75&auto=format&fit=crop" width="900" height="563" alt="Cliente recebendo espuma de barbear com pincel, em preto e branco"></div>
+          <div class="card-body">
+            <span class="num">02</span>
+            <h3>Barba</h3>
+            <p>Toalha quente, óleo e desenho preciso. O ritual clássico, no tempo certo.</p>
+            <a class="more" href="https://wa.me/5555999990001?text=Ol%C3%A1!%20Quero%20agendar%20a%20barba." target="_blank" rel="noopener">Agendar barba <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card rv">
+        <div class="card-in">
+          <div class="card-img"><img loading="lazy" src="https://images.unsplash.com/photo-1517832606299-7ae9b720a186?w=800&q=75&auto=format&fit=crop" width="800" height="600" alt="Tesoura aparando a barba de um cliente, em preto e branco"></div>
+          <div class="card-body">
+            <span class="num">03</span>
+            <h3>Corte + Barba</h3>
+            <p>O ritual completo em uma só cadeira.</p>
+            <a class="more" href="https://wa.me/5555999990001?text=Ol%C3%A1!%20Quero%20agendar%20corte%20%2B%20barba." target="_blank" rel="noopener">Agendar combo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card rv" style="--d:100ms">
+        <div class="card-in">
+          <div class="card-img"><img loading="lazy" src="https://images.unsplash.com/photo-1520338661084-680395057c93?w=800&q=75&auto=format&fit=crop" width="800" height="600" alt="Barbeiro trabalhando o cabelo escuro de um cliente com navalha e pente"></div>
+          <div class="card-body">
+            <span class="num">04</span>
+            <h3>Pigmentação</h3>
+            <p>Cobertura natural de falhas e fios brancos, sem efeito artificial.</p>
+            <a class="more" href="https://wa.me/5555999990001?text=Ol%C3%A1!%20Quero%20agendar%20pigmenta%C3%A7%C3%A3o." target="_blank" rel="noopener">Agendar pigmentação <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card rv" style="--d:200ms">
+        <div class="card-in">
+          <div class="card-img"><img loading="lazy" src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=800&q=75&auto=format&fit=crop" width="800" height="600" alt="Tesouras, máquinas e pomadas sobre bancada de madeira"></div>
+          <div class="card-body">
+            <span class="num">05</span>
+            <h3>Sobrancelha</h3>
+            <p>Design masculino, discreto e limpo. Só o que precisa sair.</p>
+            <a class="more" href="https://wa.me/5555999990001?text=Ol%C3%A1!%20Quero%20agendar%20sobrancelha." target="_blank" rel="noopener">Agendar sobrancelha <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="noivo" id="noivo">
+  <div class="wrap noivo-grid">
+    <div>
+      <span class="eyebrow rv">06 · Dia do Noivo</span>
+      <h2 class="display rv" style="--d:80ms">O dia mais importante merece <em>a melhor cadeira.</em></h2>
+      <p class="lead rv" style="--d:140ms">Uma experiência reservada para o noivo e seus padrinhos, com horário exclusivo e atenção total da equipe.</p>
+      <ul class="checks rv" style="--d:200ms">
+        <li>Corte e barba com acabamento de cerimônia</li>
+        <li>Sobrancelha e finalização</li>
+        <li>Horário exclusivo para o grupo</li>
+        <li>Reserva com antecedência</li>
+      </ul>
+      <a class="btn btn-gold rv" style="--d:260ms" href="https://wa.me/5555999990001?text=Ol%C3%A1!%20Quero%20reservar%20o%20Dia%20do%20Noivo." target="_blank" rel="noopener">Reservar o dia
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+      </a>
+    </div>
+    <div class="rv" style="--d:120ms">
+      <div class="bezel"><div class="bezel-in">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=900&q=75&auto=format&fit=crop" width="900" height="1125" alt="Cliente sorrindo na cadeira enquanto o barbeiro seca o cabelo">
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block about" id="sobre">
+  <div class="wrap about-grid">
+    <div class="about-photo rv">
+      <div class="bezel"><div class="bezel-in">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=1000&q=75&auto=format&fit=crop" width="1000" height="1000" alt="Interior da barbearia com cadeiras de couro, espelhos e parede de tijolos">
+      </div></div>
+    </div>
+    <div>
+      <span class="eyebrow rv">Sobre</span>
+      <h2 class="display rv" style="--d:80ms">Tradição de barbeiro, <em>precisão de ateliê.</em></h2>
+      <p class="rv" style="--d:140ms">A Navalha de Ouro nasceu para devolver ao atendimento masculino o tempo que ele merece. Aqui ninguém corta com pressa: cada cliente é recebido, ouvido e atendido do começo ao fim, com hora marcada e sem fila.</p>
+      <p class="rv" style="--d:180ms">Madeira, couro e latão no ambiente; técnica, navalha e atenção ao detalhe na cadeira. O resultado é o que você vê no espelho e o que ninguém precisa explicar.</p>
+      <div class="stats rv" style="--d:240ms">
+        <div><strong>10+</strong><span>anos de ofício</span></div>
+        <div><strong>6</strong><span>serviços</span></div>
+        <div><strong>9h–20h</strong><span>seg a sáb</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contato">
+  <div class="wrap">
+    <div class="contact-top">
+      <span class="eyebrow rv">Contato</span>
+      <h2 class="display rv" style="--d:80ms">Reserve o seu <em>horário.</em></h2>
+      <p class="lead rv" style="--d:140ms">O agendamento é pelo WhatsApp. Diga o serviço e o melhor dia, e a gente confirma.</p>
+      <a class="btn btn-gold rv" style="--d:200ms" href="https://wa.me/5555999990001?text=Ol%C3%A1!%20Quero%20agendar%20um%20hor%C3%A1rio%20na%20Navalha%20de%20Ouro." target="_blank" rel="noopener">Chamar no WhatsApp
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+      </a>
+    </div>
+    <div class="info">
+      <div class="info-item rv"><a class="info-in" href="https://wa.me/5555999990001" target="_blank" rel="noopener"><small>WhatsApp</small><b>(55) 99999-0001</b><span>Agendamentos</span></a></div>
+      <div class="info-item rv" style="--d:80ms"><div class="info-in"><small>Endereço</small><b>Rua Fictícia, 456</b><span>Centro · Santa Maria, RS</span></div></div>
+      <div class="info-item rv" style="--d:160ms"><div class="info-in"><small>Horário</small><b>Seg a sáb</b><span>9h às 20h</span></div></div>
+      <div class="info-item rv" style="--d:240ms"><a class="info-in" href="https://instagram.com/navalhadeouro.sm" target="_blank" rel="noopener"><small>Instagram</small><b>@navalhadeouro.sm</b><span>Siga a gente</span></a></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© Barbearia Navalha de Ouro · Santa Maria, RS</span>
+    <span>Projeto conceito · dados fictícios · fotos: Unsplash</span>
+  </div>
+</footer>
+</div>
+
+<script>
+(function(){
+  document.documentElement.classList.add('js');
+  var burger=document.getElementById('burger'),menu=document.getElementById('menu');
+  function setMenu(open){
+    burger.setAttribute('aria-expanded',open?'true':'false');
+    burger.setAttribute('aria-label',open?'Fechar menu':'Abrir menu');
+    menu.classList.toggle('open',open);
+  }
+  burger.addEventListener('click',function(){setMenu(burger.getAttribute('aria-expanded')!=='true');});
+  menu.addEventListener('click',function(e){if(e.target.closest('a'))setMenu(false);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')setMenu(false);});
+
+  var els=document.querySelectorAll('.rv');
+  if(!('IntersectionObserver' in window)){els.forEach(function(el){el.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});
+  },{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+  els.forEach(function(el){io.observe(el);});
+})();
+</script>
+</body>
+</html>

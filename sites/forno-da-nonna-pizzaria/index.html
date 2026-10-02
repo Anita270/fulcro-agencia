@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Forno da Nonna Pizzaria | Santa Maria, RS</title>
+<meta name="description" content="Forno da Nonna Pizzaria em Santa Maria, RS. Pizzas tradicionais e especiais, calzones e sobremesas. Monte o pedido no cardápio e envie pelo WhatsApp. Projeto conceito.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,500;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css">
+<style>
+:root{
+  --bg:#faf1de;
+  --bg-2:#f1e3c6;
+  --surface:#fffaf0;
+  --text:#2a1a12;
+  --mute:#6b5546;
+  --line:rgba(42,26,18,.16);
+  --tomato:#b83220;
+  --tomato-2:#9b2818;
+  --on-tomato:#fff6e6;
+  --basil:#3f6b3a;
+  --basil-2:#335a2f;
+  --on-basil:#fbf3e1;
+  --ink:#2a1a12;
+  --on-ink:#faf1de;
+  --ink-mute:#e3b9a8;
+  --shadow:0 18px 40px -22px rgba(90,40,20,.35);
+  --ease:cubic-bezier(.16,1,.3,1);
+  --display:"Playfair Display",Georgia,"Times New Roman",serif;
+  --body:"Figtree","Segoe UI",system-ui,-apple-system,sans-serif;
+  --r-card:20px;
+  --r-input:12px;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#1f1410;
+    --bg-2:#2a1b15;
+    --surface:#2f2019;
+    --text:#f6e9d2;
+    --mute:#c9b69c;
+    --line:rgba(246,233,210,.18);
+    --tomato:#ee6a54;
+    --tomato-2:#f78670;
+    --on-tomato:#1f1410;
+    --basil:#2f5a2f;
+    --basil-2:#3a6b3a;
+    --on-basil:#fbf3e1;
+    --ink:#140d0a;
+    --on-ink:#f6e9d2;
+    --ink-mute:#e3b9a8;
+    --shadow:0 18px 40px -22px rgba(0,0,0,.7);
+  }
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4,p,ul,ol,dl,dd{margin:0}
+ul,ol{padding:0;list-style:none}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--basil-2);outline-offset:3px;border-radius:10px}
+@media (prefers-color-scheme:dark){:focus-visible{outline-color:#9fd08f}}
+.wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 24px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+i.ph,i.ph-bold{line-height:1;display:inline-block}
+
+/* tipografia */
+.display{font-family:var(--display);font-weight:700;line-height:1.08;letter-spacing:-.01em;color:var(--text)}
+.display em{font-style:italic;font-weight:500;color:var(--tomato);padding-bottom:.08em;display:inline-block}
+.h2{font-size:clamp(34px,4.4vw,54px)}
+.lead{color:var(--mute);font-size:19px;max-width:34em}
+.kicker{font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--basil)}
+@media (prefers-color-scheme:dark){.kicker{color:#9fd08f}}
+
+/* botoes */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:12px 26px;border-radius:999px;border:2px solid transparent;font-weight:700;font-size:16px;line-height:1.1;white-space:nowrap;transition:transform .35s var(--ease),background-color .35s var(--ease),color .35s var(--ease),border-color .35s var(--ease)}
+.btn:active{transform:translateY(1px) scale(.98)}
+.btn-primary{background:var(--tomato);color:var(--on-tomato)}
+.btn-line{border-color:var(--text);color:var(--text);background:transparent}
+.btn-basil{background:var(--basil);color:var(--on-basil)}
+.btn[disabled]{opacity:.5;cursor:not-allowed}
+.btn i{font-size:20px}
+@media (hover:hover) and (pointer:fine){
+  .btn-primary:hover{background:var(--tomato-2)}
+  .btn-line:hover{background:var(--text);color:var(--bg)}
+  .btn-basil:hover{background:var(--basil-2)}
+}
+
+/* cabecalho (nao fixo, funciona no iframe do Wix) */
+.top{background:var(--bg)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:72px}
+.brand{font-family:var(--display);font-weight:700;font-size:26px;color:var(--tomato);white-space:nowrap}
+.nav-links{display:flex;gap:30px}
+.nav-links a{font-weight:600;font-size:15px;padding:8px 0;transition:color .3s var(--ease)}
+@media (hover:hover){.nav-links a:hover{color:var(--tomato)}}
+.nav-end{display:flex;align-items:center;gap:10px}
+.nav .btn{min-height:44px;padding:8px 20px;font-size:15px}
+.count{display:inline-grid;place-items:center;min-width:24px;height:24px;padding:0 7px;border-radius:999px;background:var(--on-tomato);color:var(--tomato);font-size:13px;font-weight:700;transition:transform .4s var(--ease)}
+.count.bump{transform:scale(1.25)}
+.burger{display:none;width:48px;height:48px;border-radius:50%;border:2px solid var(--text);background:transparent;place-items:center;font-size:22px}
+.menu{display:none}
+
+/* hero */
+.hero{padding:28px 0 64px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(42px,5.4vw,68px);margin-bottom:24px}
+.hero .lead{margin-bottom:34px}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px}
+.hero-img{border-radius:28px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:5/5}
+.hero-img img{width:100%;height:100%;object-fit:cover}
+.check{height:28px;background-color:var(--bg);background-image:conic-gradient(var(--tomato) 25%,transparent 0 50%,var(--tomato) 0 75%,transparent 0);background-size:28px 28px}
+
+/* faixa de informacoes */
+.facts{background:var(--bg-2);padding:26px 0}
+.facts ul{display:flex;justify-content:space-between;gap:16px 40px;flex-wrap:wrap}
+.facts li{display:flex;align-items:center;gap:12px;font-weight:700;font-size:16px}
+.facts i{font-size:26px;color:var(--tomato)}
+
+section.sec{padding:100px 0}
+
+/* destaques: bento */
+.sec-head{margin-bottom:40px;max-width:40em}
+.sec-head .h2{margin-top:0}
+.bento{display:grid;grid-template-columns:1.15fr 1fr;grid-template-rows:1fr 1fr;gap:20px}
+.tile{position:relative;border-radius:24px;overflow:hidden;background:var(--ink);min-height:260px;display:flex;align-items:flex-end}
+.tile.big{grid-row:span 2;min-height:540px}
+.tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease)}
+.tile::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(20,10,6,.86),rgba(20,10,6,.05) 62%)}
+.tile-body{position:relative;z-index:1;padding:26px;width:100%;display:flex;justify-content:space-between;align-items:flex-end;gap:16px;color:#fff6e6}
+.tile h3{font-family:var(--display);font-size:28px;line-height:1.1;font-weight:700}
+.tile p{font-size:15px;opacity:.9;max-width:26em;margin-top:4px}
+.tile .btn{background:#fff6e6;color:#2a1a12;min-height:44px;padding:8px 20px;font-size:15px}
+@media (hover:hover) and (pointer:fine){.tile:hover img{transform:scale(1.05)}.tile .btn:hover{background:#ffd9b8}}
+
+/* cardapio */
+.menu-sec{background:var(--bg-2)}
+.menu-top{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:28px}
+.menu-top .h2{margin-top:10px}
+.tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}
+.tab{min-height:46px;padding:10px 22px;border-radius:999px;border:2px solid var(--text);background:transparent;font-weight:700;font-size:15px;transition:background-color .3s var(--ease),color .3s var(--ease),transform .3s var(--ease)}
+.tab:active{transform:scale(.97)}
+.tab[aria-selected="true"]{background:var(--text);color:var(--bg)}
+.menu-layout{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:36px;align-items:start}
+.panel-note{color:var(--mute);font-size:15px;margin-bottom:18px}
+.items{display:grid;gap:14px}
+.item{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-card);padding:22px 24px;display:grid;grid-template-columns:1fr auto;gap:14px 24px;align-items:center;animation:rise .5s var(--ease) both}
+.item h3{font-family:var(--display);font-size:24px;line-height:1.15;font-weight:700}
+.item .desc{color:var(--mute);font-size:15px;margin-top:4px;max-width:30em}
+.price{font-weight:700;font-size:20px;color:var(--tomato);white-space:nowrap;text-align:right}
+.item-ctl{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;padding-top:14px;border-top:1px dashed var(--line)}
+.sizes{display:flex;gap:6px}
+.size{position:relative}
+.size input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.size span{display:flex;flex-direction:column;align-items:center;min-width:64px;padding:6px 14px;border-radius:999px;border:2px solid var(--line);font-weight:700;font-size:15px;line-height:1.2;transition:background-color .25s var(--ease),border-color .25s var(--ease),color .25s var(--ease)}
+.size span small{font-size:11px;font-weight:500;color:var(--mute)}
+.size input:checked + span{background:var(--basil);border-color:var(--basil);color:var(--on-basil)}
+.size input:checked + span small{color:var(--on-basil);opacity:.85}
+.size input:focus-visible + span{outline:3px solid var(--basil-2);outline-offset:3px}
+.add-row{display:flex;align-items:center;gap:12px}
+.stepper{display:inline-flex;align-items:center;border:2px solid var(--line);border-radius:999px}
+.stepper button{width:44px;height:44px;border:0;background:transparent;border-radius:50%;font-size:18px;display:grid;place-items:center}
+.stepper output{min-width:28px;text-align:center;font-weight:700}
+.stepper button:active{transform:scale(.9)}
+.item .btn{min-height:46px;padding:8px 20px;font-size:15px}
+.item .btn.done{background:var(--basil);color:var(--on-basil)}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* pedido */
+.order{background:var(--surface);border:2px solid var(--text);border-radius:24px;padding:28px;position:sticky;top:16px}
+.order h3{font-family:var(--display);font-size:30px;line-height:1.1}
+.lines{margin:16px 0;display:grid;gap:12px}
+.empty{color:var(--mute);font-size:15px;padding:18px;border:2px dashed var(--line);border-radius:var(--r-input);text-align:center}
+.line{display:grid;grid-template-columns:1fr auto;gap:2px 12px;align-items:center;font-size:15px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.line b{font-weight:700}
+.line .sub{color:var(--mute);font-size:14px}
+.line .lp{font-weight:700;white-space:nowrap}
+.line .ctl{grid-column:1/-1;display:flex;align-items:center;gap:6px;margin-top:6px}
+.line .ctl button{width:36px;height:36px;border-radius:50%;border:2px solid var(--line);background:transparent;display:grid;place-items:center;font-size:15px}
+.line .ctl output{min-width:24px;text-align:center;font-weight:700}
+.line .ctl .rm{margin-left:auto;border-color:transparent;color:var(--tomato)}
+.total{display:flex;justify-content:space-between;align-items:baseline;font-size:18px;font-weight:700;padding:6px 0 4px}
+.total strong{font-family:var(--display);font-size:32px;color:var(--tomato);transition:transform .4s var(--ease);display:inline-block}
+.total strong.bump{transform:scale(1.08)}
+.fee{color:var(--mute);font-size:14px;margin-bottom:18px}
+.field{margin-bottom:14px}
+.field label,.field legend{display:block;font-weight:700;font-size:14px;margin-bottom:6px;padding:0}
+fieldset.field{border:0;padding:0;margin:0 0 14px;min-width:0}
+.input{width:100%;min-height:48px;padding:11px 14px;border-radius:var(--r-input);border:2px solid var(--line);background:var(--bg);font-size:16px;transition:border-color .25s var(--ease)}
+.input:focus{border-color:var(--basil);outline:0}
+.input[aria-invalid="true"]{border-color:var(--tomato)}
+.err{color:var(--tomato);font-size:14px;font-weight:600;margin-top:5px;min-height:0}
+@media (prefers-color-scheme:dark){.err{color:#ff9a86}}
+.seg{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:8px}
+.seg label{position:relative;margin:0}
+.seg input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.seg span{display:flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:8px 10px;border-radius:var(--r-input);border:2px solid var(--line);font-weight:700;font-size:15px;text-align:center;transition:background-color .25s var(--ease),border-color .25s var(--ease),color .25s var(--ease)}
+.seg input:checked + span{background:var(--text);border-color:var(--text);color:var(--bg)}
+.seg input:focus-visible + span{outline:3px solid var(--basil-2);outline-offset:3px}
+.order .btn{width:100%}
+.hint{color:var(--mute);font-size:13px;margin-top:10px;text-align:center}
+.fallback{display:none;margin-top:12px;font-size:14px;text-align:center}
+.fallback.show{display:block}
+.fallback a{color:var(--tomato);font-weight:700;text-decoration:underline}
+.menu-sum{display:none}
+
+/* como pedir */
+.how ol{margin-top:12px}
+.how li{display:grid;grid-template-columns:90px 220px 1fr;gap:12px 32px;align-items:center;padding:26px 0;border-top:1px solid var(--line)}
+.how li:last-child{border-bottom:1px solid var(--line)}
+.how .n{font-family:var(--display);font-size:68px;font-weight:700;line-height:1;color:var(--tomato)}
+.how h3{font-family:var(--display);font-size:32px;line-height:1.1}
+.how p{color:var(--mute);font-size:18px;max-width:34em}
+
+/* historia */
+.story{background:var(--basil);color:var(--on-basil)}
+.story-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:72px;align-items:center}
+.story-img{border-radius:28px;overflow:hidden;aspect-ratio:4/3.4}
+.story-img img{width:100%;height:100%;object-fit:cover}
+.story .display{color:var(--on-basil);margin-bottom:20px}
+.story .display em{color:#ffd9a8}
+.story p{font-size:19px;opacity:.95;max-width:30em}
+.story p + p{margin-top:14px}
+
+/* contato */
+.contact{background:var(--ink);color:var(--on-ink)}
+.contact .kicker{color:var(--ink-mute)}
+.contact .display{color:var(--on-ink);margin:10px 0 40px}
+.contact .display em{color:#ff9a86}
+.info{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.info li{padding:6px 28px 6px 0}
+.info li + li{padding-left:28px;border-left:1px solid rgba(250,241,222,.2)}
+.info small{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:6px}
+.info b{font-weight:600;font-size:18px;display:block;overflow-wrap:anywhere}
+.info a{text-decoration:underline;text-underline-offset:4px;text-decoration-color:rgba(250,241,222,.4)}
+footer{background:var(--ink);color:var(--ink-mute);padding:26px 0;border-top:1px solid rgba(250,241,222,.14);font-size:14px}
+.foot{display:flex;justify-content:space-between;gap:12px 24px;flex-wrap:wrap}
+
+/* reveal */
+.js .rv{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:var(--d,0ms)}
+.js .rv.in{opacity:1;transform:none}
+
+/* responsivo */
+@media (max-width:980px){
+  .nav-links{display:none}
+  .burger{display:grid}
+  .menu{display:block;position:absolute;top:calc(100% + 6px);left:24px;right:24px;z-index:20;background:var(--surface);border:2px solid var(--text);border-radius:var(--r-card);padding:8px 24px 22px;box-shadow:var(--shadow);visibility:hidden;opacity:0;transform:translateY(-8px);transition:opacity .35s var(--ease),transform .35s var(--ease),visibility 0s .35s}
+  .menu.open{visibility:visible;opacity:1;transform:none;transition:opacity .35s var(--ease),transform .35s var(--ease),visibility 0s}
+  .menu a.l{display:block;padding:14px 0;border-bottom:1px solid var(--line);font-family:var(--display);font-size:24px;font-weight:700}
+  .menu .btn{margin-top:18px;width:100%}
+  .hero-grid,.story-grid{grid-template-columns:1fr;gap:40px}
+  .hero{padding-bottom:48px}
+  .hero-img{aspect-ratio:4/3}
+  .bento{grid-template-columns:1fr;grid-template-rows:auto}
+  .tile.big{grid-row:auto;min-height:380px}
+  .menu-layout{grid-template-columns:1fr}
+  .order{position:static}
+  .menu-sum{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--text);color:var(--bg);border-radius:var(--r-card);padding:12px 12px 12px 20px;margin-bottom:22px;font-weight:700}
+  .menu-sum .btn{min-height:42px;padding:6px 18px;font-size:15px;background:var(--tomato);color:var(--on-tomato)}
+  .how li{grid-template-columns:70px 1fr;gap:6px 20px;padding:22px 0}
+  .how li p{grid-column:2}
+  .how .n{font-size:54px;grid-row:span 2}
+  .info{grid-template-columns:1fr 1fr;gap:28px 0}
+  .info li:nth-child(odd){padding-left:0;border-left:0}
+  .info li:nth-child(3){padding-left:0;border-left:0}
+  section.sec{padding:76px 0}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .wrap{padding:0 16px}
+  .menu{left:16px;right:16px}
+  .brand{font-size:22px}
+  .nav .btn.nav-cta{display:none}
+  .lead{font-size:17px}
+  .cta-row .btn{width:100%}
+  .facts ul{flex-direction:column;gap:14px}
+  .item{padding:18px;grid-template-columns:1fr}
+  .price{text-align:left}
+  .item-ctl{flex-direction:column;align-items:stretch}
+  .sizes{justify-content:space-between}
+  .size{flex:1}
+  .size span{min-width:0;width:100%}
+  .add-row{justify-content:space-between}
+  .item .btn{flex:1}
+  .tile-body{flex-direction:column;align-items:flex-start}
+  .tile.big{min-height:340px}
+  .info{grid-template-columns:1fr}
+  .info li,.info li + li{padding:0;border:0}
+  .order{padding:22px}
+  .seg{grid-auto-flow:row}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;transition-delay:0ms!important}
+  .js .rv{transform:none}
+}
+/* aviso de projeto conceito */
+.aviso-conceito{margin:0;padding:9px 16px;background:#0b0b0d;color:#f1f1f1;font:500 13px/1.4 system-ui,-apple-system,"Segoe UI",sans-serif;text-align:center;letter-spacing:.01em}
+.aviso-conceito b{font-weight:700}
+</style>
+</head>
+<body>
+
+<p class="aviso-conceito"><b>Projeto conceito da Fulcro Agência.</b> Negócio, endereço, telefone e preços são fictícios.</p>
+<header class="top">
+  <div class="wrap" style="position:relative">
+    <nav class="nav" aria-label="Principal">
+      <a class="brand" href="#inicio" aria-label="Forno da Nonna, início">Forno da Nonna</a>
+      <ul class="nav-links">
+        <li><a href="#cardapio">Cardápio</a></li>
+        <li><a href="#como-pedir">Como pedir</a></li>
+        <li><a href="#historia">Nossa história</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+      <div class="nav-end">
+        <a class="btn btn-primary nav-cta" href="#pedido"><i class="ph-bold ph-shopping-bag" aria-hidden="true"></i>Pedido <span class="count" data-count aria-label="itens no pedido">0</span></a>
+        <button class="burger" id="burger" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu"><i class="ph-bold ph-list" aria-hidden="true"></i></button>
+      </div>
+    </nav>
+    <div class="menu" id="menu">
+      <a class="l" href="#cardapio">Cardápio</a>
+      <a class="l" href="#como-pedir">Como pedir</a>
+      <a class="l" href="#historia">Nossa história</a>
+      <a class="l" href="#contato">Contato</a>
+      <a class="btn btn-primary" href="#pedido">Ver meu pedido <span class="count" data-count>0</span></a>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="wrap hero-grid">
+    <div>
+      <h1 class="display rv">Pizza de forno a lenha, <em>quentinha</em> na sua porta.</h1>
+      <p class="lead rv" style="--d:80ms">Massa de fermentação lenta e ingredientes frescos. Monte o pedido no cardápio e envie pelo WhatsApp.</p>
+      <div class="cta-row rv" style="--d:160ms">
+        <a class="btn btn-primary" href="#cardapio">Montar meu pedido <i class="ph-bold ph-arrow-right" aria-hidden="true"></i></a>
+        <a class="btn btn-line" href="#contato">Horários e entrega</a>
+      </div>
+    </div>
+    <div class="hero-img rv" style="--d:120ms">
+      <img src="https://images.unsplash.com/photo-1579751626657-72bc17010498?w=1200&q=75&auto=format&fit=crop" width="1200" height="1200" alt="Pizza margherita assada em forno a lenha, com o fogo ao fundo">
+    </div>
+  </div>
+</section>
+
+<div class="check" aria-hidden="true"></div>
+
+<section class="facts" aria-label="Informações rápidas">
+  <div class="wrap">
+    <ul>
+      <li><i class="ph ph-clock" aria-hidden="true"></i>Ter a dom, 18h às 23h30</li>
+      <li><i class="ph ph-motorcycle" aria-hidden="true"></i>Delivery e retirada</li>
+      <li><i class="ph ph-whatsapp-logo" aria-hidden="true"></i>Pedido pelo WhatsApp</li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec" id="destaques">
+  <div class="wrap">
+    <div class="sec-head rv"><h2 class="display h2">As mais pedidas da casa</h2></div>
+    <div class="bento">
+      <article class="tile big rv">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=1100&q=75&auto=format&fit=crop" width="1100" height="900" alt="Pizza margherita com manjericão fresco sobre bancada de mármore">
+        <div class="tile-body">
+          <div><h3>Margherita</h3><p>Tomate, mussarela de búfala e manjericão fresco.</p></div>
+          <button class="btn" type="button" data-quick="margherita">Pedir média</button>
+        </div>
+      </article>
+      <article class="tile rv" style="--d:100ms">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=900&q=75&auto=format&fit=crop" width="900" height="560" alt="Pizza de frango com catupiry cortada sobre tábua de madeira">
+        <div class="tile-body">
+          <div><h3>Frango com Catupiry</h3><p>Frango desfiado e catupiry cremoso.</p></div>
+          <button class="btn" type="button" data-quick="frango">Pedir média</button>
+        </div>
+      </article>
+      <article class="tile rv" style="--d:180ms">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1588315029754-2dd089d39a1a?w=900&q=75&auto=format&fit=crop" width="900" height="560" alt="Fatia de pizza com queijo derretido esticando">
+        <div class="tile-body">
+          <div><h3>Mussarela</h3><p>A clássica, com bastante queijo.</p></div>
+          <button class="btn" type="button" data-quick="mussarela">Pedir média</button>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec menu-sec" id="cardapio">
+  <div class="wrap">
+    <div class="menu-top rv">
+      <div>
+        <span class="kicker">Cardápio</span>
+        <h2 class="display h2">Escolha, ajuste e <em>envie</em></h2>
+      </div>
+    </div>
+
+    <div class="menu-sum" aria-live="polite">
+      <span><span data-count>0</span> itens: <span data-total>R$ 0,00</span></span>
+      <a class="btn" href="#pedido">Ver pedido</a>
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="Categorias do cardápio" id="tabs"></div>
+
+    <div class="menu-layout">
+      <div>
+        <p class="panel-note" id="panel-note"></p>
+        <div class="items" id="items" role="tabpanel" aria-live="polite"></div>
+      </div>
+
+      <aside class="order" id="pedido" aria-labelledby="order-title">
+        <h3 id="order-title">Seu pedido</h3>
+        <div class="lines" id="lines" aria-live="polite"></div>
+        <div class="total"><span>Total</span><strong id="total" aria-live="polite">R$ 0,00</strong></div>
+        <p class="fee" id="fee">A taxa de entrega depende do bairro e é informada no WhatsApp.</p>
+
+        <form id="form" novalidate>
+          <fieldset class="field">
+            <legend>Como você quer receber?</legend>
+            <div class="seg">
+              <label><input type="radio" name="tipo" value="Entrega" checked><span><i class="ph-bold ph-motorcycle" aria-hidden="true"></i>Entrega</span></label>
+              <label><input type="radio" name="tipo" value="Retirada"><span><i class="ph-bold ph-storefront" aria-hidden="true"></i>Retirada</span></label>
+            </div>
+          </fieldset>
+
+          <div class="field">
+            <label for="nome">Seu nome</label>
+            <input class="input" id="nome" name="nome" type="text" autocomplete="name" aria-describedby="nome-err">
+            <p class="err" id="nome-err"></p>
+          </div>
+
+          <div class="field" id="end-wrap">
+            <label for="endereco">Endereço de entrega</label>
+            <input class="input" id="endereco" name="endereco" type="text" autocomplete="street-address" placeholder="Rua, número, bairro" aria-describedby="end-err">
+            <p class="err" id="end-err"></p>
+          </div>
+
+          <fieldset class="field">
+            <legend>Forma de pagamento</legend>
+            <div class="seg" style="grid-auto-flow:row;grid-template-columns:repeat(3,1fr)">
+              <label><input type="radio" name="pag" value="Pix" checked><span>Pix</span></label>
+              <label><input type="radio" name="pag" value="Cartão"><span>Cartão</span></label>
+              <label><input type="radio" name="pag" value="Dinheiro"><span>Dinheiro</span></label>
+            </div>
+          </fieldset>
+
+          <div class="field" id="troco-wrap" hidden>
+            <label for="troco">Troco para quanto?</label>
+            <input class="input" id="troco" name="troco" type="text" inputmode="decimal" placeholder="Ex.: 200">
+          </div>
+
+          <div class="field">
+            <label for="obs">Observações (opcional)</label>
+            <input class="input" id="obs" name="obs" type="text" placeholder="Ex.: sem cebola, portão azul">
+          </div>
+
+          <button class="btn btn-primary" type="submit" id="send"><i class="ph-bold ph-whatsapp-logo" aria-hidden="true"></i>Enviar pedido</button>
+          <p class="err" id="form-err" style="text-align:center"></p>
+          <p class="hint">O pedido abre no WhatsApp da pizzaria já escrito. É só tocar em enviar.</p>
+          <p class="fallback" id="fallback">Se o WhatsApp não abriu, <a id="fallback-link" href="#" target="_blank" rel="noopener">toque aqui</a>.</p>
+        </form>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="sec how" id="como-pedir">
+  <div class="wrap">
+    <div class="sec-head rv"><h2 class="display h2">Do forno à sua <em>mesa</em></h2></div>
+    <ol>
+      <li class="rv"><span class="n">1</span><h3>Escolha</h3><p>Pizzas, calzones e sobremesas, no tamanho que couber na mesa.</p></li>
+      <li class="rv" style="--d:80ms"><span class="n">2</span><h3>Envie</h3><p>O pedido sai pronto no WhatsApp, com itens, total, nome e endereço.</p></li>
+      <li class="rv" style="--d:160ms"><span class="n">3</span><h3>Receba</h3><p>Entrega no Centro e bairros próximos, ou retire no balcão.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec story" id="historia">
+  <div class="wrap story-grid">
+    <div class="story-img rv">
+      <img loading="lazy" src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=1000&q=75&auto=format&fit=crop" width="1000" height="850" alt="Pizza assada fatiada sobre tábua de madeira com tomates e alecrim">
+    </div>
+    <div>
+      <h2 class="display h2 rv">A receita é da Nonna. <em>O forno é nosso.</em></h2>
+      <p class="rv" style="--d:80ms">Uma cantina de bairro que apostou na massa feita todo dia e no calor do forno a lenha. Aqui a pizza chega do jeito que sai: quente, cheirosa e com borda de verdade.</p>
+      <p class="rv" style="--d:140ms">Projeto conceito com história fictícia, criado para portfólio.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec contact" id="contato">
+  <div class="wrap">
+    <span class="kicker rv">Contato</span>
+    <h2 class="display h2 rv" style="--d:60ms">Bateu a <em>fome?</em></h2>
+    <ul class="info rv" style="--d:120ms">
+      <li><small><i class="ph ph-whatsapp-logo" aria-hidden="true"></i>WhatsApp</small><b><a href="https://wa.me/5555999990002" target="_blank" rel="noopener">(55) 99999-0002</a></b></li>
+      <li><small><i class="ph ph-map-pin" aria-hidden="true"></i>Endereço</small><b>Rua Fictícia, 789, Centro<br>Santa Maria, RS</b></li>
+      <li><small><i class="ph ph-clock" aria-hidden="true"></i>Horário</small><b>Ter a dom<br>18h às 23h30</b></li>
+      <li><small><i class="ph ph-instagram-logo" aria-hidden="true"></i>Instagram</small><b><a href="https://instagram.com/fornodanonna.sm" target="_blank" rel="noopener">@fornodanonna.sm</a></b></li>
+    </ul>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>Forno da Nonna Pizzaria, Santa Maria, RS</span>
+    <span>Projeto conceito com dados fictícios. Fotos: Unsplash.</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+  document.documentElement.classList.add('js');
+
+  var WA = '5555999990002';
+  var SIZES = {P:'25 cm',M:'30 cm',G:'35 cm'};
+
+  /* Preços em centavos. Dados fictícios. */
+  var MENU = [
+    {id:'trad',label:'Tradicionais',note:'Pizzas com 4, 6 ou 8 fatias, conforme o tamanho.',items:[
+      {id:'margherita',name:'Margherita',desc:'Molho de tomate, mussarela de búfala e manjericão fresco.',p:{P:4200,M:5400,G:6600}},
+      {id:'mussarela',name:'Mussarela',desc:'Molho de tomate, mussarela e orégano.',p:{P:3800,M:5000,G:6200}},
+      {id:'calabresa',name:'Calabresa',desc:'Calabresa fatiada, cebola e azeitonas.',p:{P:4000,M:5200,G:6400}},
+      {id:'portuguesa',name:'Portuguesa',desc:'Presunto, ovo, cebola, pimentão e azeitonas.',p:{P:4400,M:5600,G:7000}},
+      {id:'napolitana',name:'Napolitana',desc:'Mussarela, tomate fatiado, parmesão e manjericão.',p:{P:4200,M:5400,G:6600}},
+      {id:'quatroqueijos',name:'Quatro Queijos',desc:'Mussarela, provolone, gorgonzola e parmesão.',p:{P:4800,M:6200,G:7600}}
+    ]},
+    {id:'esp',label:'Especiais',note:'As receitas da casa, com ingredientes selecionados.',items:[
+      {id:'nonna',name:'Da Nonna',desc:'Mussarela, linguiça artesanal, cebola caramelizada e rúcula.',p:{P:5200,M:6800,G:8400}},
+      {id:'frango',name:'Frango com Catupiry',desc:'Frango desfiado, catupiry cremoso e milho.',p:{P:4600,M:5900,G:7300}},
+      {id:'burrata',name:'Burrata e Tomate Confit',desc:'Molho pomodoro, burrata, tomate confit e manjericão.',p:{P:5800,M:7600,G:9400}},
+      {id:'toscana',name:'Toscana',desc:'Linguiça toscana, cebola roxa, mussarela e pimenta calabresa.',p:{P:4800,M:6200,G:7600}},
+      {id:'parma',name:'Parma',desc:'Presunto cru, rúcula, lascas de parmesão e mussarela.',p:{P:5600,M:7200,G:8900}}
+    ]},
+    {id:'calz',label:'Calzones',note:'Tamanho único, assado dobrado e recheado.',items:[
+      {id:'calz-presunto',name:'Calzone de Presunto e Queijo',desc:'Presunto, mussarela e molho de tomate.',price:3600},
+      {id:'calz-calabresa',name:'Calzone de Calabresa',desc:'Calabresa, cebola e mussarela.',price:3800},
+      {id:'calz-frango',name:'Calzone de Frango com Catupiry',desc:'Frango desfiado e catupiry.',price:3800},
+      {id:'calz-ricota',name:'Calzone de Ricota e Espinafre',desc:'Ricota fresca, espinafre e noz-moscada.',price:4000}
+    ]},
+    {id:'sobr',label:'Sobremesas',note:'Para fechar o pedido com algo doce.',items:[
+      {id:'pizza-choc',name:'Pizza Broto de Chocolate',desc:'Chocolate ao leite derretido com morangos.',price:3400},
+      {id:'romeu',name:'Pizza Broto Romeu e Julieta',desc:'Mussarela e goiabada.',price:3400},
+      {id:'tiramisu',name:'Tiramisù',desc:'Porção individual, receita da casa.',price:2400},
+      {id:'cannoli',name:'Cannoli',desc:'Massa crocante com creme de ricota e gotas de chocolate.',price:1800}
+    ]}
+  ];
+
+  var byId = {};
+  MENU.forEach(function(c){c.items.forEach(function(it){byId[it.id]=it;});});
+
+  var fmt = new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'});
+  function money(c){return fmt.format(c/100);}
+
+  var cart = [];          /* {id,size,qty} */
+  var sel = {};           /* seleção por item: {size,qty} */
+  var activeTab = 'trad';
+
+  try{
+    var saved = JSON.parse(localStorage.getItem('nonna-cart')||'[]');
+    if(Array.isArray(saved)){cart = saved.filter(function(l){return byId[l.id] && l.qty>0;});}
+  }catch(e){}
+  function persist(){try{localStorage.setItem('nonna-cart',JSON.stringify(cart));}catch(e){}}
+
+  var $ = function(s,r){return (r||document).querySelector(s);};
+  var tabsEl = $('#tabs'), itemsEl = $('#items'), noteEl = $('#panel-note');
+  var linesEl = $('#lines'), totalEl = $('#total');
+
+  function unitPrice(l){var it=byId[l.id];return it.p ? it.p[l.size] : it.price;}
+  function lineLabel(l){var it=byId[l.id];return it.p ? it.name+' ('+l.size+')' : it.name;}
+
+  /* Abas */
+  function renderTabs(){
+    tabsEl.innerHTML='';
+    MENU.forEach(function(c){
+      var b=document.createElement('button');
+      b.type='button';b.className='tab';b.setAttribute('role','tab');
+      b.id='tab-'+c.id;b.textContent=c.label;
+      b.setAttribute('aria-selected',c.id===activeTab?'true':'false');
+      b.setAttribute('tabindex',c.id===activeTab?'0':'-1');
+      b.addEventListener('click',function(){activeTab=c.id;renderTabs();renderItems();});
+      b.addEventListener('keydown',function(e){
+        var i=MENU.findIndex(function(m){return m.id===activeTab;});
+        if(e.key==='ArrowRight'||e.key==='ArrowLeft'){
+          e.preventDefault();
+          i=(i+(e.key==='ArrowRight'?1:MENU.length-1))%MENU.length;
+          activeTab=MENU[i].id;renderTabs();renderItems();
+          $('#tab-'+activeTab).focus();
+        }
+      });
+      tabsEl.appendChild(b);
+    });
+    itemsEl.setAttribute('aria-labelledby','tab-'+activeTab);
+  }
+
+  /* Itens */
+  function renderItems(){
+    var cat = MENU.find(function(c){return c.id===activeTab;});
+    noteEl.textContent = cat.note;
+    itemsEl.innerHTML='';
+    cat.items.forEach(function(it,idx){
+      var s = sel[it.id] || (sel[it.id]={size:'M',qty:1});
+      var art=document.createElement('article');
+      art.className='item';art.style.animationDelay=(idx*45)+'ms';
+      var priceNow = it.p ? it.p[s.size] : it.price;
+      var sizesHtml='';
+      if(it.p){
+        sizesHtml='<div class="sizes" role="radiogroup" aria-label="Tamanho de '+it.name+'">'+
+          ['P','M','G'].map(function(z){
+            return '<label class="size"><input type="radio" name="sz-'+it.id+'" value="'+z+'"'+(s.size===z?' checked':'')+'><span>'+z+'<small>'+SIZES[z]+'</small></span></label>';
+          }).join('')+'</div>';
+      } else {
+        sizesHtml='<div class="sizes"><span style="color:var(--mute);font-size:14px;font-weight:600">Tamanho único</span></div>';
+      }
+      art.innerHTML=
+        '<div><h3>'+it.name+'</h3><p class="desc">'+it.desc+'</p></div>'+
+        '<div class="price" data-price>'+money(priceNow)+'</div>'+
+        '<div class="item-ctl">'+sizesHtml+
+          '<div class="add-row">'+
+            '<div class="stepper" role="group" aria-label="Quantidade de '+it.name+'">'+
+              '<button type="button" data-act="dec" aria-label="Diminuir quantidade"><i class="ph-bold ph-minus" aria-hidden="true"></i></button>'+
+              '<output aria-live="polite">'+s.qty+'</output>'+
+              '<button type="button" data-act="inc" aria-label="Aumentar quantidade"><i class="ph-bold ph-plus" aria-hidden="true"></i></button>'+
+            '</div>'+
+            '<button type="button" class="btn btn-primary" data-act="add">Adicionar</button>'+
+          '</div>'+
+        '</div>';
+
+      var out=$('output',art), priceEl=$('[data-price]',art), addBtn=$('[data-act="add"]',art);
+      art.addEventListener('change',function(e){
+        if(e.target.name==='sz-'+it.id){s.size=e.target.value;priceEl.textContent=money(it.p[s.size]);}
+      });
+      art.addEventListener('click',function(e){
+        var b=e.target.closest('button[data-act]');if(!b)return;
+        var act=b.getAttribute('data-act');
+        if(act==='dec'){s.qty=Math.max(1,s.qty-1);out.textContent=s.qty;}
+        if(act==='inc'){s.qty=Math.min(20,s.qty+1);out.textContent=s.qty;}
+        if(act==='add'){
+          addToCart(it.id,it.p?s.size:'U',s.qty);
+          addBtn.classList.add('done');addBtn.textContent='Adicionado';
+          setTimeout(function(){addBtn.classList.remove('done');addBtn.textContent='Adicionar';},1400);
+          s.qty=1;out.textContent=1;
+        }
+      });
+      itemsEl.appendChild(art);
+    });
+  }
+
+  /* Carrinho */
+  function addToCart(id,size,qty){
+    var l=cart.find(function(x){return x.id===id && x.size===size;});
+    if(l){l.qty=Math.min(40,l.qty+qty);}else{cart.push({id:id,size:size,qty:qty});}
+    renderCart(true);
+  }
+  function total(){return cart.reduce(function(a,l){return a+unitPrice(l)*l.qty;},0);}
+  function countItems(){return cart.reduce(function(a,l){return a+l.qty;},0);}
+
+  function renderCart(bump){
+    persist();
+    linesEl.innerHTML='';
+    if(!cart.length){
+      var e=document.createElement('p');e.className='empty';
+      e.textContent='Seu pedido está vazio. Escolha uma pizza no cardápio e toque em Adicionar.';
+      linesEl.appendChild(e);
+    }
+    cart.forEach(function(l,i){
+      var d=document.createElement('div');d.className='line';
+      d.innerHTML=
+        '<div><b>'+lineLabel(l)+'</b><div class="sub">'+money(unitPrice(l))+' cada</div></div>'+
+        '<div class="lp">'+money(unitPrice(l)*l.qty)+'</div>'+
+        '<div class="ctl">'+
+          '<button type="button" data-i="'+i+'" data-a="dec" aria-label="Diminuir '+lineLabel(l)+'"><i class="ph-bold ph-minus" aria-hidden="true"></i></button>'+
+          '<output>'+l.qty+'</output>'+
+          '<button type="button" data-i="'+i+'" data-a="inc" aria-label="Aumentar '+lineLabel(l)+'"><i class="ph-bold ph-plus" aria-hidden="true"></i></button>'+
+          '<button type="button" class="rm" data-i="'+i+'" data-a="rm" aria-label="Remover '+lineLabel(l)+'"><i class="ph ph-trash" aria-hidden="true"></i></button>'+
+        '</div>';
+      linesEl.appendChild(d);
+    });
+    var t=money(total()), n=countItems();
+    totalEl.textContent=t;
+    document.querySelectorAll('[data-total]').forEach(function(el){el.textContent=t;});
+    document.querySelectorAll('[data-count]').forEach(function(el){
+      el.textContent=n;
+      if(bump){el.classList.remove('bump');void el.offsetWidth;el.classList.add('bump');}
+    });
+    if(bump){totalEl.classList.remove('bump');void totalEl.offsetWidth;totalEl.classList.add('bump');}
+    $('#send').disabled = !cart.length;
+  }
+  linesEl.addEventListener('click',function(e){
+    var b=e.target.closest('button[data-a]');if(!b)return;
+    var i=+b.getAttribute('data-i'),a=b.getAttribute('data-a'),l=cart[i];if(!l)return;
+    if(a==='inc')l.qty=Math.min(40,l.qty+1);
+    if(a==='dec')l.qty=l.qty-1;
+    if(a==='rm'||l.qty<1)cart.splice(i,1);
+    renderCart(false);
+  });
+
+  /* Destaques */
+  document.querySelectorAll('[data-quick]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var id=b.getAttribute('data-quick');
+      addToCart(id,'M',1);
+      var old=b.textContent;b.textContent='Adicionado';
+      setTimeout(function(){b.textContent=old;},1400);
+    });
+  });
+
+  /* Formulário */
+  var form=$('#form'), tipoInputs=form.querySelectorAll('input[name="tipo"]');
+  var endWrap=$('#end-wrap'), endInput=$('#endereco');
+  var trocoWrap=$('#troco-wrap');
+  function tipo(){return form.querySelector('input[name="tipo"]:checked').value;}
+  function pag(){return form.querySelector('input[name="pag"]:checked').value;}
+  function syncForm(){
+    var entrega=tipo()==='Entrega';
+    endWrap.hidden=!entrega;
+    $('#fee').textContent = entrega ? 'A taxa de entrega depende do bairro e é informada no WhatsApp.' : 'Retirada no balcão, sem taxa. Rua Fictícia, 789, Centro.';
+    trocoWrap.hidden = pag()!=='Dinheiro';
+  }
+  form.addEventListener('change',syncForm);
+
+  function setErr(input,errId,msg){
+    var el=$('#'+errId);
+    if(msg){el.textContent=msg;input.setAttribute('aria-invalid','true');}
+    else{el.textContent='';input.removeAttribute('aria-invalid');}
+  }
+  ['nome','endereco'].forEach(function(id){
+    $('#'+id).addEventListener('input',function(){
+      setErr(this,id==='nome'?'nome-err':'end-err','');
+      $('#form-err').textContent='';
+    });
+  });
+
+  function buildMessage(){
+    var linhas=cart.map(function(l){
+      return l.qty+'x '+lineLabel(l)+' - '+money(unitPrice(l)*l.qty);
+    });
+    var msg='*Pedido - Forno da Nonna*\n\n*Itens*\n'+linhas.join('\n')+'\n\n*Total: '+money(total())+'*';
+    if(tipo()==='Entrega')msg+='\n(taxa de entrega a combinar)';
+    msg+='\n\n*Tipo:* '+tipo();
+    msg+='\n*Nome:* '+$('#nome').value.trim();
+    if(tipo()==='Entrega')msg+='\n*Endereço:* '+endInput.value.trim();
+    var p=pag();
+    if(p==='Dinheiro'){
+      var tr=$('#troco').value.trim();
+      p+= tr ? ' (troco para R$ '+tr.replace(/^R\$\s*/i,'')+')' : ' (sem troco)';
+    }
+    msg+='\n*Pagamento:* '+p;
+    var ob=$('#obs').value.trim();
+    if(ob)msg+='\n*Observações:* '+ob;
+    return msg;
+  }
+
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var ok=true;
+    $('#form-err').textContent='';
+    if(!cart.length){$('#form-err').textContent='Adicione ao menos um item ao pedido.';return;}
+    if(!$('#nome').value.trim()){setErr($('#nome'),'nome-err','Informe seu nome.');ok=false;}else setErr($('#nome'),'nome-err','');
+    if(tipo()==='Entrega' && !endInput.value.trim()){setErr(endInput,'end-err','Informe o endereço de entrega.');ok=false;}else setErr(endInput,'end-err','');
+    if(!ok){
+      var first=form.querySelector('[aria-invalid="true"]');if(first)first.focus();
+      return;
+    }
+    var url='https://wa.me/'+WA+'?text='+encodeURIComponent(buildMessage());
+    var fb=$('#fallback'),fl=$('#fallback-link');
+    fl.href=url;fb.classList.add('show');
+    window.open(url,'_blank','noopener');
+  });
+
+  /* Menu mobile */
+  var burger=$('#burger'),menu=$('#menu');
+  function setMenu(open){
+    burger.setAttribute('aria-expanded',open?'true':'false');
+    burger.setAttribute('aria-label',open?'Fechar menu':'Abrir menu');
+    burger.innerHTML = open ? '<i class="ph-bold ph-x" aria-hidden="true"></i>' : '<i class="ph-bold ph-list" aria-hidden="true"></i>';
+    menu.classList.toggle('open',open);
+  }
+  burger.addEventListener('click',function(){setMenu(burger.getAttribute('aria-expanded')!=='true');});
+  menu.addEventListener('click',function(e){if(e.target.closest('a'))setMenu(false);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')setMenu(false);});
+
+  /* Reveal */
+  var els=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(en){
+      en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});
+    },{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+    els.forEach(function(el){io.observe(el);});
+  } else {els.forEach(function(el){el.classList.add('in');});}
+
+  renderTabs();renderItems();renderCart(false);syncForm();
+})();
+</script>
+</body>
+</html>
