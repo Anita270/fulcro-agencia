@@ -16,15 +16,7 @@ git push origin main
 
 Depois do push, conferir no endereço oficial se a mudança entrou.
 
-## Publicar um site novo
-
-Padrão para qualquer site novo (de cliente ou conceito), cada um na sua pasta em `C:\Users\User\Projetos`:
-
-1. Criar o repositório no GitHub e enviar o código: `gh repo create <nome> --public --source . --remote origin --push` (conta `Anita270`).
-2. Publicar na Vercel pela CLI, dentro da pasta do site: `vercel --prod --yes`.
-3. Devolver para a Anita o link curto de produção (`https://<nome>.vercel.app`), não o endereço longo de cada deploy, depois de conferir que ele abre.
-
-A Vercel CLI está instalada globalmente (`npm i -g vercel`). Se `vercel whoami` falhar, o login é com `vercel login`, feito pela Anita.
+A regra geral de publicação (projetos da Fulcro x sites de clientes) está no CLAUDE.md global.
 
 ## Estrutura
 
