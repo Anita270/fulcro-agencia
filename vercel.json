@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    { "source": "/ig", "destination": "/index.html" },
+    { "source": "/zap", "destination": "/index.html" },
+    { "source": "/ig/:caminho*", "destination": "/:caminho*" },
+    { "source": "/zap/:caminho*", "destination": "/:caminho*" }
+  ]
+}
