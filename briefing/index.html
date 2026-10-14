@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<meta name="robots" content="noindex">
+<title>Briefing do seu site | Fulcro Agência</title>
+<meta name="description" content="Perguntas rápidas para a Fulcro Agência criar o site da sua empresa.">
+<meta property="og:title" content="Briefing do seu site | Fulcro Agência">
+<meta property="og:description" content="Responda algumas perguntas rápidas e a gente monta o site da sua empresa.">
+<link rel="icon" href="../logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#06070a;
+  --navy-3:#16244f;
+  --silver:#dde2ea;
+  --silver-2:#aab2c0;
+  --text:#eef1f6;
+  --mute:#9aa3b5;
+  --line:rgba(221,226,234,.14);
+  --line-2:rgba(221,226,234,.28);
+  --field:rgba(221,226,234,.05);
+  --metal:linear-gradient(180deg,#ffffff 0%,#dfe4ec 40%,#a3abba 100%);
+  --metal-flat:linear-gradient(135deg,#f6f8fb 0%,#c3cad6 55%,#99a2b2 100%);
+  --ease:cubic-bezier(.32,.72,0,1);
+  --font:"Plus Jakarta Sans","Segoe UI",system-ui,-apple-system,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;min-height:100svh;background:var(--black);color:var(--text);font-family:var(--font);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(60rem 40rem at 105% -10%,rgba(22,36,79,.75),transparent 60%),radial-gradient(40rem 30rem at -20% 110%,rgba(22,36,79,.45),transparent 60%)}
+h1,h2,p{margin:0}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+:focus-visible{outline:2px solid #fff;outline-offset:3px;border-radius:10px}
+
+.app{width:100%;max-width:620px;margin:0 auto;min-height:100svh;display:flex;flex-direction:column;padding:20px 22px calc(24px + env(safe-area-inset-bottom))}
+
+/* topo */
+.topo{display:flex;align-items:center;gap:12px;height:48px}
+.topo img{width:40px;height:40px;border-radius:50%}
+.topo b{font-weight:700;font-size:15px;letter-spacing:.02em;color:var(--silver)}
+.voltar{margin-left:auto;display:flex;align-items:center;gap:6px;font-size:14px;color:var(--mute);padding:8px 4px;visibility:hidden}
+.voltar svg{width:16px;height:16px}
+.barra{height:3px;border-radius:3px;background:var(--line);margin-top:14px;overflow:hidden;visibility:hidden}
+.barra i{display:block;height:100%;width:0;background:var(--metal-flat);transition:width .5s var(--ease)}
+.contagem{font-size:13px;color:var(--mute);margin-top:10px;min-height:20px}
+
+/* telas */
+.tela{flex:1;display:flex;flex-direction:column;padding-top:7vh}
+.tela.entra{animation:entra .45s var(--ease) both}
+@keyframes entra{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.tela.entra{animation:none}.barra i{transition:none}}
+
+.titulo-grande{font-weight:800;font-size:clamp(40px,11vw,60px);line-height:1.02;letter-spacing:-.02em;background:var(--metal);-webkit-background-clip:text;background-clip:text;color:transparent}
+.intro{color:var(--mute);font-size:18px;margin-top:20px;max-width:30ch}
+.lista{margin:30px 0 0;padding:0;list-style:none;display:grid;gap:12px;color:var(--silver-2);font-size:15.5px}
+.lista li{display:flex;gap:12px;align-items:flex-start}
+.lista li::before{content:"";flex:none;width:6px;height:6px;border-radius:50%;background:var(--silver-2);margin-top:9px}
+
+.pergunta{font-weight:700;font-size:clamp(25px,6.6vw,32px);line-height:1.18;letter-spacing:-.01em;color:var(--text)}
+.dica{color:var(--mute);font-size:15px;margin-top:10px}
+
+input[type=text],input[type=tel],textarea{width:100%;margin-top:26px;font:inherit;font-size:18px;color:var(--text);background:var(--field);border:1px solid var(--line-2);border-radius:14px;padding:16px 18px;outline:none;transition:border-color .3s var(--ease),background-color .3s var(--ease)}
+textarea{min-height:150px;resize:vertical;line-height:1.5}
+input::placeholder,textarea::placeholder{color:#6e7789}
+input:focus,textarea:focus{border-color:var(--silver);background:rgba(221,226,234,.08)}
+
+.opcoes{display:grid;gap:10px;margin-top:26px}
+.opcao{display:flex;align-items:center;gap:14px;width:100%;text-align:left;font-size:17px;font-weight:500;padding:16px 18px;border-radius:14px;border:1px solid var(--line-2);background:var(--field);transition:border-color .3s var(--ease),background-color .3s var(--ease)}
+.opcao .marca{flex:none;width:22px;height:22px;border-radius:50%;border:1.5px solid var(--silver-2);display:grid;place-items:center}
+.opcao.multi .marca{border-radius:6px}
+.opcao .marca svg{width:13px;height:13px;opacity:0;color:#07090f}
+.opcao[aria-checked=true]{border-color:var(--silver);background:rgba(221,226,234,.1)}
+.opcao[aria-checked=true] .marca{background:var(--metal-flat);border-color:transparent}
+.opcao[aria-checked=true] .marca svg{opacity:1}
+
+/* rodapé de ações */
+.acoes{display:flex;align-items:center;gap:12px;margin-top:28px;padding-top:8px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:56px;padding:0 28px;border-radius:999px;font-weight:700;font-size:16px;transition:transform .4s var(--ease),filter .4s var(--ease)}
+.btn svg{width:18px;height:18px}
+.btn-metal{background:var(--metal-flat);color:#07090f;box-shadow:inset 0 1px 0 rgba(255,255,255,.7)}
+.btn-metal:active{transform:scale(.97)}
+.btn-larga{width:100%}
+.pular{font-size:15px;color:var(--mute);padding:14px 10px;text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--line-2)}
+.empurra{margin-top:auto}
+
+/* revisão */
+.resumo{margin-top:26px;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.resumo div{padding:14px 18px;border-top:1px solid var(--line)}
+.resumo div:first-child{border-top:0}
+.resumo dt{font-size:13px;color:var(--mute)}
+.resumo dd{margin:2px 0 0;font-size:15.5px;white-space:pre-wrap;word-break:break-word}
+.resumo dd.vazio{color:#6e7789;font-style:italic}
+.resumo button{font-size:13px;color:var(--silver-2);text-decoration:underline;text-underline-offset:3px;margin-top:4px;padding:2px 0}
+
+.passos{margin:26px 0 0;padding:0;list-style:none;display:grid;gap:16px;counter-reset:p}
+.passos li{counter-increment:p;display:grid;grid-template-columns:36px 1fr;gap:12px;align-items:start;color:var(--silver-2);font-size:16px}
+.passos li::before{content:counter(p);display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--metal-flat);color:#07090f;font-weight:800;font-size:15px}
+.passos b{color:var(--text);font-weight:700}
+.nota{font-size:14px;color:var(--mute);margin-top:18px}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="topo">
+    <img src="../logo.png" alt="">
+    <b>Fulcro Agência</b>
+    <button class="voltar" id="voltar" type="button" aria-label="Voltar para a pergunta anterior">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>Voltar
+    </button>
+  </header>
+  <div class="barra" id="barra" aria-hidden="true"><i></i></div>
+  <p class="contagem" id="contagem" aria-live="polite"></p>
+  <main id="tela" class="tela"></main>
+</div>
+
+<script>
+(function () {
+  /* ================================================================
+     CONFIGURAÇÃO
+     ================================================================ */
+  var WHATSAPP = '5555984535365';
+
+  /* Perguntas. tipo: texto | longo | tel | escolha | varias */
+  var PERGUNTAS = [
+    { id: 'pessoa', tipo: 'texto', titulo: 'Para começar, qual é o seu nome?', ph: 'Seu nome', obrigatoria: true },
+    { id: 'empresa', tipo: 'texto', titulo: 'Qual é o nome da empresa?', dica: 'Do jeito que vai aparecer no site.', ph: 'Nome da empresa', obrigatoria: true },
+    { id: 'faz', tipo: 'longo', titulo: 'O que a empresa faz, em uma frase?', dica: 'Ex.: "Padaria de fermentação natural no centro de Santa Maria."', ph: 'Escreva aqui' },
+    { id: 'historia', tipo: 'longo', titulo: 'Como tudo começou? Há quanto tempo vocês existem?', dica: 'Conte só o que quiser que apareça no site.', ph: 'Escreva aqui' },
+    { id: 'endereco', tipo: 'longo', titulo: 'Qual endereço podemos divulgar?', dica: 'Se atende só online ou a domicílio, escreva isso.', ph: 'Rua, número, bairro' },
+    { id: 'horario', tipo: 'longo', titulo: 'Quais são os dias e horários de atendimento?', ph: 'Ex.: segunda a sexta, das 8h às 18h' },
+    { id: 'whatsapp', tipo: 'tel', titulo: 'Qual WhatsApp vai no botão do site?', dica: 'É para esse número que os clientes vão mandar mensagem.', ph: '(55) 90000-0000' },
+    { id: 'redes', tipo: 'texto', titulo: 'Qual é o Instagram da empresa?', dica: 'Se tiver outras redes, pode colocar também.', ph: '@suaempresa' },
+    { id: 'produtos', tipo: 'longo', titulo: 'Quais são os principais produtos ou serviços?', dica: 'Até 6, um por linha. Se quiser, coloque uma frase sobre cada um.', ph: 'Um por linha' },
+    { id: 'precos', tipo: 'escolha', titulo: 'Quer mostrar os preços no site?', opcoes: ['Sim', 'Não', 'Só de alguns'] },
+    { id: 'carro_chefe', tipo: 'texto', titulo: 'Qual deles vocês mais querem vender?', ph: 'Escreva aqui' },
+    { id: 'diferencial', tipo: 'longo', titulo: 'Por que o cliente escolhe vocês e não o concorrente?', ph: 'Escreva aqui' },
+    { id: 'cliente', tipo: 'longo', titulo: 'Quem é o seu cliente mais comum?', dica: 'Ex.: "mães do bairro", "empresas pequenas", "estudantes".', ph: 'Escreva aqui' },
+    { id: 'duvidas', tipo: 'longo', titulo: 'O que os clientes sempre perguntam antes de comprar?', dica: 'Essas perguntas viram respostas no site.', ph: 'Escreva aqui' },
+    { id: 'logo', tipo: 'escolha', titulo: 'Vocês já têm logo?', opcoes: ['Sim, mando no WhatsApp', 'Não tenho'] },
+    { id: 'cores', tipo: 'longo', titulo: 'Quais cores você gosta? E quais não quer de jeito nenhum?', dica: 'Se tiver logo, a gente parte das cores dela.', ph: 'Gosto de... / Não quero...' },
+    { id: 'fotos', tipo: 'varias', titulo: 'Quais fotos você consegue mandar no WhatsApp?', dica: 'Pode marcar mais de uma. Foto de celular serve, se estiver nítida.', opcoes: ['Fachada ou espaço', 'Produtos ou serviços', 'Equipe ou você trabalhando', 'Ainda não tenho fotos'] },
+    { id: 'ilustrativas', tipo: 'escolha', titulo: 'Onde faltar foto, podemos usar imagens ilustrativas?', dica: 'Elas nunca são apresentadas como fotos reais do seu negócio.', opcoes: ['Sim', 'Não'] },
+    { id: 'referencias', tipo: 'longo', titulo: 'Tem algum site ou Instagram que você acha bonito?', dica: 'Pode ser de qualquer área. Cole o link ou escreva o nome.', ph: 'Escreva aqui' },
+    { id: 'proibido', tipo: 'longo', titulo: 'Tem alguma coisa que NÃO pode aparecer no site?', ph: 'Escreva aqui' },
+    { id: 'extra', tipo: 'longo', titulo: 'Quer contar mais alguma coisa?', ph: 'Escreva aqui' }
+  ];
+
+  /* Rótulos curtos usados na mensagem do WhatsApp */
+  var ROTULOS = {
+    pessoa: 'Nome', empresa: 'Empresa', faz: 'O que faz', historia: 'História', endereco: 'Endereço',
+    horario: 'Horário', whatsapp: 'WhatsApp do site', redes: 'Instagram e redes', produtos: 'Produtos ou serviços',
+    precos: 'Mostrar preços', carro_chefe: 'O que mais quer vender', diferencial: 'Diferencial',
+    cliente: 'Cliente mais comum', duvidas: 'Dúvidas dos clientes', logo: 'Tem logo', cores: 'Cores',
+    fotos: 'Fotos que vai mandar', ilustrativas: 'Pode usar imagens ilustrativas', referencias: 'Referências',
+    proibido: 'Não pode aparecer', extra: 'Mais informações'
+  };
+
+  /* ================================================================ */
+  var CHAVE = 'fulcro-briefing-v1';
+  var respostas = {};
+  var passo = -1; // -1 = boas-vindas; PERGUNTAS.length = revisão; +1 = enviado
+  var vindoDaRevisao = false;
+
+  try { respostas = JSON.parse(localStorage.getItem(CHAVE)) || {}; } catch (e) { respostas = {}; }
+  function guardar() { try { localStorage.setItem(CHAVE, JSON.stringify(respostas)); } catch (e) {} }
+
+  var $tela = document.getElementById('tela');
+  var $barra = document.getElementById('barra');
+  var $contagem = document.getElementById('contagem');
+  var $voltar = document.getElementById('voltar');
+
+  var ICO_CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+  var ICO_SETA = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+  var ICO_ZAP = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4a.5.5 0 0 0 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.2c0-.1-.2-.2-.4-.3z"/></svg>';
+
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+
+  function vazio(v) { return v == null || (Array.isArray(v) ? v.length === 0 : String(v).trim() === ''); }
+
+  function mostrar(html) {
+    $tela.classList.remove('entra');
+    void $tela.offsetWidth;
+    $tela.innerHTML = html;
+    $tela.classList.add('entra');
+    window.scrollTo(0, 0);
+  }
+
+  function cabecalho() {
+    var emPergunta = passo >= 0 && passo < PERGUNTAS.length;
+    $barra.style.visibility = passo >= 0 && passo <= PERGUNTAS.length ? 'visible' : 'hidden';
+    $voltar.style.visibility = passo >= 0 && passo <= PERGUNTAS.length ? 'visible' : 'hidden';
+    var pct = passo < 0 ? 0 : Math.min(passo, PERGUNTAS.length) / PERGUNTAS.length * 100;
+    $barra.firstElementChild.style.width = pct + '%';
+    $contagem.textContent = emPergunta ? 'Pergunta ' + (passo + 1) + ' de ' + PERGUNTAS.length : '';
+  }
+
+  function ir(n) { passo = n; render(); }
+
+  function render() {
+    cabecalho();
+    if (passo < 0) return boasVindas();
+    if (passo < PERGUNTAS.length) return pergunta(PERGUNTAS[passo]);
+    if (passo === PERGUNTAS.length) return revisao();
+    return enviado();
+  }
+
+  function boasVindas() {
+    var temRascunho = Object.keys(respostas).length > 0;
+    mostrar(
+      '<h1 class="titulo-grande">Vamos criar o site da sua empresa</h1>' +
+      '<p class="intro">São ' + PERGUNTAS.length + ' perguntas rápidas, uma de cada vez. Leva uns 10 minutos.</p>' +
+      '<ul class="lista">' +
+        '<li>Não sabe ou não tem? É só tocar em "Pular".</li>' +
+        '<li>Escreva do seu jeito, como se estivesse explicando para um amigo.</li>' +
+        '<li>No final, as respostas vão para o nosso WhatsApp com um toque.</li>' +
+      '</ul>' +
+      '<div class="acoes empurra"><button class="btn btn-metal btn-larga" id="comecar" type="button">' +
+        (temRascunho ? 'Continuar de onde parei' : 'Começar') + ICO_SETA + '</button></div>'
+    );
+    document.getElementById('comecar').onclick = function () {
+      if (!temRascunho) return ir(0);
+      for (var i = 0; i < PERGUNTAS.length; i++) if (!(PERGUNTAS[i].id in respostas)) return ir(i);
+      ir(PERGUNTAS.length);
+    };
+  }
+
+  function pergunta(p) {
+    var v = respostas[p.id];
+    var corpo = '';
+    if (p.tipo === 'texto' || p.tipo === 'tel') {
+      corpo = '<input id="campo" type="' + (p.tipo === 'tel' ? 'tel' : 'text') + '" autocomplete="' +
+        (p.id === 'pessoa' ? 'name' : p.tipo === 'tel' ? 'tel' : 'off') + '" placeholder="' + esc(p.ph || '') +
+        '" value="' + esc(v || '') + '" enterkeyhint="next">';
+    } else if (p.tipo === 'longo') {
+      corpo = '<textarea id="campo" placeholder="' + esc(p.ph || '') + '">' + esc(v || '') + '</textarea>';
+    } else {
+      var multi = p.tipo === 'varias';
+      var sel = multi ? (v || []) : v;
+      corpo = '<div class="opcoes" role="' + (multi ? 'group' : 'radiogroup') + '" aria-label="' + esc(p.titulo) + '">' +
+        p.opcoes.map(function (o, i) {
+          var marcado = multi ? sel.indexOf(o) > -1 : sel === o;
+          return '<button type="button" class="opcao' + (multi ? ' multi' : '') + '" role="' + (multi ? 'checkbox' : 'radio') +
+            '" aria-checked="' + marcado + '" data-i="' + i + '"><span class="marca">' + ICO_CHECK + '</span>' + esc(o) + '</button>';
+        }).join('') + '</div>';
+    }
+
+    var ultimo = passo === PERGUNTAS.length - 1;
+    var rotuloSeguir = vindoDaRevisao ? 'Salvar' : ultimo ? 'Revisar respostas' : 'Próxima';
+    var mostrarSeguir = p.tipo !== 'escolha' || vindoDaRevisao || !vazio(v);
+    mostrar(
+      '<h2 class="pergunta" id="titulo">' + esc(p.titulo) + '</h2>' +
+      (p.dica ? '<p class="dica">' + esc(p.dica) + '</p>' : '') +
+      corpo +
+      '<div class="acoes">' +
+        (mostrarSeguir ? '<button class="btn btn-metal" id="seguir" type="button">' + rotuloSeguir + ICO_SETA + '</button>' : '') +
+        (p.obrigatoria ? '' : '<button class="pular" id="pular" type="button">Pular</button>') +
+      '</div>'
+    );
+
+    var campo = document.getElementById('campo');
+    if (campo) {
+      if (window.matchMedia('(pointer:fine)').matches) campo.focus();
+      campo.addEventListener('input', function () { respostas[p.id] = campo.value; guardar(); });
+      if (campo.tagName === 'INPUT') campo.addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); seguir(); } });
+    }
+
+    Array.prototype.forEach.call($tela.querySelectorAll('.opcao'), function (b) {
+      b.onclick = function () {
+        var o = p.opcoes[+b.dataset.i];
+        if (p.tipo === 'varias') {
+          var lista = (respostas[p.id] || []).slice();
+          var k = lista.indexOf(o);
+          if (k > -1) lista.splice(k, 1); else lista.push(o);
+          respostas[p.id] = lista;
+          b.setAttribute('aria-checked', k === -1);
+          guardar();
+        } else {
+          respostas[p.id] = o; guardar();
+          Array.prototype.forEach.call($tela.querySelectorAll('.opcao'), function (x) { x.setAttribute('aria-checked', x === b); });
+          setTimeout(seguir, 260);
+        }
+      };
+    });
+
+    function seguir() {
+      if (p.obrigatoria && vazio(respostas[p.id])) {
+        if (campo) { campo.focus(); campo.style.borderColor = '#e8b4b4'; campo.placeholder = 'Esse campo é importante'; }
+        return;
+      }
+      if (!(p.id in respostas)) respostas[p.id] = '';
+      guardar();
+      if (vindoDaRevisao) { vindoDaRevisao = false; return ir(PERGUNTAS.length); }
+      ir(passo + 1);
+    }
+    var bs = document.getElementById('seguir'); if (bs) bs.onclick = seguir;
+    var bp = document.getElementById('pular');
+    if (bp) bp.onclick = function () {
+      respostas[p.id] = p.tipo === 'varias' ? [] : ''; guardar();
+      if (vindoDaRevisao) { vindoDaRevisao = false; return ir(PERGUNTAS.length); }
+      ir(passo + 1);
+    };
+  }
+
+  function textoResposta(p) {
+    var v = respostas[p.id];
+    if (Array.isArray(v)) return v.join(', ');
+    return v == null ? '' : String(v).trim();
+  }
+
+  function revisao() {
+    var nome = (respostas.pessoa || '').trim().split(' ')[0];
+    mostrar(
+      '<h2 class="pergunta">' + (nome ? 'Prontinho, ' + esc(nome) + '!' : 'Prontinho!') + '</h2>' +
+      '<p class="dica">Confira as respostas. Se quiser mudar alguma, toque em "Alterar".</p>' +
+      '<dl class="resumo">' + PERGUNTAS.map(function (p, i) {
+        var t = textoResposta(p);
+        return '<div><dt>' + esc(ROTULOS[p.id]) + '</dt><dd class="' + (t ? '' : 'vazio') + '">' + (t ? esc(t) : 'Sem resposta') +
+          '</dd><button type="button" data-i="' + i + '">Alterar</button></div>';
+      }).join('') + '</dl>' +
+      '<div class="acoes"><button class="btn btn-metal btn-larga" id="enviar" type="button">' + ICO_ZAP + 'Enviar pelo WhatsApp</button></div>' +
+      '<p class="nota">Vai abrir o WhatsApp da Fulcro com tudo escrito. É só tocar em enviar.</p>'
+    );
+    Array.prototype.forEach.call($tela.querySelectorAll('.resumo button'), function (b) {
+      b.onclick = function () { vindoDaRevisao = true; ir(+b.dataset.i); };
+    });
+    document.getElementById('enviar').onclick = enviar;
+  }
+
+  function mensagem() {
+    var linhas = ['*Briefing do site — ' + (respostas.empresa || '').trim() + '*', ''];
+    PERGUNTAS.forEach(function (p) {
+      var t = textoResposta(p);
+      if (!t) return;
+      linhas.push('*' + ROTULOS[p.id] + ':*');
+      linhas.push(t);
+      linhas.push('');
+    });
+    linhas.push('Já vou mandar as fotos e a logo aqui embaixo.');
+    return linhas.join('\n');
+  }
+
+  function enviar() {
+    var url = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(mensagem());
+    passo = PERGUNTAS.length + 1;
+    render();
+    window.location.href = url;
+  }
+
+  function enviado() {
+    mostrar(
+      '<h2 class="pergunta">Falta só um passo</h2>' +
+      '<p class="dica">O WhatsApp abriu com as suas respostas. Agora:</p>' +
+      '<ol class="passos">' +
+        '<li><span>Toque em <b>enviar</b> na mensagem.</span></li>' +
+        '<li><span>Na mesma conversa, mande as <b>fotos</b> e a <b>logo</b>.</span></li>' +
+        '<li><span>A gente monta a primeira versão do seu site e te chama para mostrar.</span></li>' +
+      '</ol>' +
+      '<div class="acoes empurra"><button class="btn btn-metal btn-larga" id="denovo" type="button">' + ICO_ZAP + 'Abrir o WhatsApp de novo</button></div>' +
+      '<p class="nota">Se o WhatsApp não abriu, toque no botão acima.</p>'
+    );
+    document.getElementById('denovo').onclick = function () {
+      window.location.href = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(mensagem());
+    };
+  }
+
+  $voltar.onclick = function () {
+    if (vindoDaRevisao) { vindoDaRevisao = false; return ir(PERGUNTAS.length); }
+    if (passo > PERGUNTAS.length) return ir(PERGUNTAS.length);
+    ir(passo - 1);
+  };
+
+  render();
+})();
+</script>
+</body>
+</html>
