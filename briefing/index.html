@@ -345,11 +345,46 @@ input:focus,textarea:focus{border-color:var(--silver);background:rgba(221,226,23
     return linhas.join('\n');
   }
 
+  /* Cópia automática na Wix (site "Fulcro Briefings", formulário "Briefing do site").
+     Se falhar ou demorar, o WhatsApp abre do mesmo jeito: a cópia nunca trava o cliente. */
+  var WIX = {
+    clientId: '64fd0108-db50-4e23-9439-2708c4511f31',
+    formId: '1a8455af-998c-4394-84eb-122961da3cbe',
+    alvos: { nome: 'nome_k3f9a2', empresa: 'empresa_p7d2x8', whatsapp: 'whatsapp_m4q8z1', respostas: 'respostas_b6t1w5' }
+  };
+
+  function copiaNaWix() {
+    var api = 'https://www.wixapis.com';
+    return fetch(api + '/oauth2/token', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ clientId: WIX.clientId, grantType: 'anonymous' })
+    }).then(function (r) { if (!r.ok) throw new Error('token ' + r.status); return r.json(); })
+      .then(function (t) {
+        var s = {};
+        s[WIX.alvos.nome] = (respostas.pessoa || '').trim() || '(sem nome)';
+        s[WIX.alvos.empresa] = (respostas.empresa || '').trim() || '(sem empresa)';
+        if ((respostas.whatsapp || '').trim()) s[WIX.alvos.whatsapp] = respostas.whatsapp.trim();
+        s[WIX.alvos.respostas] = mensagem().replace(/\*/g, '');
+        return fetch(api + '/form-submission-service/v4/submissions', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Authorization: t.access_token },
+          body: JSON.stringify({ submission: { formId: WIX.formId, submissions: s } })
+        });
+      })
+      .then(function (r) { if (!r.ok) throw new Error('envio ' + r.status); })
+      .catch(function (e) { if (window.console) console.warn('Cópia na Wix não foi salva:', e); });
+  }
+
   function enviar() {
     var url = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(mensagem());
-    passo = PERGUNTAS.length + 1;
-    render();
-    window.location.href = url;
+    var botao = document.getElementById('enviar');
+    if (botao) { botao.disabled = true; botao.lastChild.textContent = 'Abrindo o WhatsApp...'; }
+    var espera = new Promise(function (ok) { setTimeout(ok, 3000); });
+    Promise.race([copiaNaWix(), espera]).then(function () {
+      passo = PERGUNTAS.length + 1;
+      render();
+      window.location.href = url;
+    });
   }
 
   function enviado() {
