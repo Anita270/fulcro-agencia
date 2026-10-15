@@ -43,6 +43,7 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
 /* topo */
 .topo{display:flex;align-items:center;gap:12px;height:48px}
 .topo img{width:40px;height:40px;border-radius:50%}
+.marca-link{display:flex;align-items:center;gap:12px;color:inherit;text-decoration:none}
 .topo b{font-weight:700;font-size:15px;letter-spacing:.02em;color:var(--silver)}
 .voltar{margin-left:auto;display:flex;align-items:center;gap:6px;font-size:14px;color:var(--mute);padding:8px 4px;visibility:hidden}
 .voltar svg{width:16px;height:16px}
@@ -108,8 +109,7 @@ input:focus,textarea:focus{border-color:var(--silver);background:rgba(221,226,23
 <body>
 <div class="app">
   <header class="topo">
-    <img src="../logo.png" alt="">
-    <b>Fulcro Agência</b>
+    <a class="marca-link" href="/" aria-label="Fulcro Agência, ir para o site"><img src="../logo.png" alt=""><b>Fulcro Agência</b></a>
     <button class="voltar" id="voltar" type="button" aria-label="Voltar para a pergunta anterior">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>Voltar
     </button>
